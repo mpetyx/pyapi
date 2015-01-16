@@ -1,0 +1,147 @@
+#%RAML 0.8
+title: dweet api
+version: v0.1
+baseUri: https://dweet.io/{version}
+documentation:
+  - title: Dweet API
+    content: |
+      this api is a raml represantation of the https://dweet.io/play/definition/dweets
+      and
+      https://dweet.io/play/definition/locks
+
+traits:
+  - paged:
+      queryParameters:
+        pages:
+          description: The number of pages to return
+          type: number
+  - secured:
+      description: the security constraints
+
+/dweet/for/{thing}:
+  description: Create a dweet for a thing.
+  post:
+    description: post a new Dweet
+    queryParameters:
+      key:
+        displayName: key
+        example: fsahjrarwhru2393842h3jdsa
+        description: A valid key for a locked thing. If the thing is not locked, this can be ignored.
+        required: false
+        type: string
+      content:
+        displayName: content
+        description: The actual content of the string. Can be any valid JSON string.
+        required: true
+        type: string
+        example: a valid json content
+      thing:
+        description: A unique name of a thing. It is recommended that you use a GUID as to avoid name collisions.
+        type: string
+        required: true
+        example: thing
+
+/get/latest/dweet/for/{thing}:
+  displayName: getLatestDweet
+  get:
+    description: Read the latest dweet for a thing
+    queryParameters:
+      key:
+        displayName: key
+        example: key
+        description: A valid key for a locked thing. If the thing is not locked, this can be ignored.
+        required: false
+        type: string
+      thing:
+        description: A unique name of a thing.
+        type: string
+        required: true
+        example: thing
+
+/get/dweets/for/{thing}:
+  is: [paged]
+  displayName: getAllDweets
+  get:
+    description: Read all of the saved dweets (up to last 500) for a thing.
+    queryParameters:
+      key:
+        displayName: key
+        example: fsahjrarwhru2393842h3jdsa
+        description: A valid key for a locked thing. If the thing is not locked, this can be ignored.
+        required: false
+        type: string
+      thing:
+        description: A unique name of a thing.
+        type: string
+        required: true
+        example: thing
+
+/listen/for/dweets/from/{thing}:
+  is: [paged]
+  displayName: listenForDweets
+  get:
+    description: Sorry, this function uses HTTP chunked responses and cannot be tested here. Try something like <pre>curl --raw https//dweet.io/listen/for/dweets/from/thing</pre>
+    queryParameters:
+      thing:
+        description: A unique name of a thing.
+        type: string
+        required: true
+        example: thing
+
+/lock/{thing}:
+  get:
+    queryParameters:
+      lock:
+        description: A valid dweet.io lock.
+        required: true
+        type: string
+        example: lock
+      key:
+        description: A valid dweet.io master key.
+        type: string
+        required: true
+        example: key
+      thing:
+        description: A unique name of a thing.
+        type: string
+        displayName: Thing
+        required: true
+        example: thing
+
+  description: lock a thing
+  displayName: lockThing
+
+/unlock/{thing}:
+  get:
+    queryParameters:
+      key:
+        description: A valid dweet.io master key.
+        type: string
+        required: true
+        example: key
+      thing:
+        description: A unique name of a thing.
+        type: string
+        displayName: Thing
+        required: true
+        example: thing
+
+  description: Unlock a thing
+  displayName: unlockThing
+
+/remove/lock/{lock}:
+  get:
+    queryParameters:
+      lock:
+        description: A valid dweet.io lock.
+        required: true
+        type: string
+        example: lock
+      key:
+        description: A valid dweet.io master key.
+        type: string
+        required: true
+        example: key
+
+  description: Remove a lock from thing.
+  displayName: removeLock
