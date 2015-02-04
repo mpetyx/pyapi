@@ -5,10 +5,10 @@ import os.path
 import pyraml.parser
 from pyraml.entities import RamlRoot, RamlDocumentation
 
-fixtures_dir = os.path.join(os.path.dirname(__file__), '../', 'samples')
+fixtures_dir = os.path.join(os.path.dirname(__file__), '..', 'samples')
 
 def test_include_raml():
-    p = pyraml.parser.load(os.path.join(fixtures_dir, '../samples/root-elements-includes.yaml'))
+    p = pyraml.parser.load(os.path.join(fixtures_dir, 'root-elements-includes.yaml'))
     assert isinstance(p, RamlRoot), RamlRoot
     assert p.raml_version == "0.8", p.raml_version
     assert p.title == "included title", p.title
@@ -29,6 +29,6 @@ eiusmod tempor incididunt ut labore et dolore magna...
     assert p.documentation[1].content == "section content", p.documentation[1].content
 
 def test_numeric_version():
-    p = pyraml.parser.load(os.path.join(fixtures_dir, '../samples/numeric-api-version.yaml'))
+    p = pyraml.parser.load(os.path.join(fixtures_dir, 'numeric-api-version.yaml'))
     assert isinstance(p, RamlRoot), RamlRoot
     assert p.version == 1, p.version

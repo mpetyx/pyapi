@@ -1,0 +1,115 @@
+#%RAML 0.8
+title: Bookstore example API
+version: v0.1
+baseUri: https://example.io/{version}
+documentation:
+  - title: Bookstore API
+    content: |
+      this api is a raml represantation of the https://dweet.io/play/definition/dweets
+      and
+      https://dweet.io/play/definition/locks
+
+/entry:
+  displayName: Entry
+  description: This is the main entry path
+  get:
+    description: You get the overall document of all the related paths
+    responses:
+      200:
+        body:
+          application/json: 
+            example: |
+              {
+                "@context": "http://schema.org", 
+                "@type": "Person", 
+                "address": {
+                  "@type": "PostalAddress", 
+                  "addressLocality": "Seattle", 
+                  "addressRegion": "WA", 
+                  "postalCode": "98052", 
+                  "streetAddress": "20341 Whitworth Institute 405 N. Whitworth"
+                }, 
+                "colleague": [
+                  "http://www.xyz.edu/students/alicejones.html", 
+                  "http://www.xyz.edu/students/bobsmith.html"
+                ], 
+                "email": "mailto:jane-doe@xyz.edu", 
+                "image": "janedoe.jpg", 
+                "jobTitle": "Professor", 
+                "name": "Jane Doe", 
+                "telephone": "(425) 123-4567", 
+                "url": "http://www.janedoe.com"
+              }
+
+/basket:
+  displayName: basket resource
+  get:
+    description: Retrieve the content of the basket.
+  post:
+    description: The add to basket capability.
+    queryParameters:
+      product:
+        description: It has to be a url to a product.
+  delete:
+    description: Delete an item from the basket.
+    queryParameters:
+      product:
+        description: It has to be a url to a product.
+    
+
+/search:
+  displayName: search resource
+  get:
+    description: This is the main search function
+    queryParameters:
+      keywords:
+        description: The search terms. It can be a combination of words and/or terms.
+        displayName: Search Terms
+        example: Ulysses
+    responses:
+      200:
+        description: it returns a list of products
+        body:
+          application/json:
+            example:
+              
+        
+/product:
+  displayName: product resource
+  description: The path for handling products
+  get:
+    description: Retrieve details for the specific product
+    queryParameters:
+      id:
+        displayName: id
+        description: The id of the project.
+        
+        
+/receipt:
+  displayName: receipt resource
+  get:
+    description: Retrieve a receipt for a specific payment with that id
+    queryParameters:
+      id:
+        description: Provide a valid payment id(or url)
+  post:
+    description: Create the receipt for the payment.
+    
+/payment:
+  description: The payment path. It only receives secure post requests
+  displayName: payment resource
+  post:
+    description: It has no parameters since it takes by default the user basket to checkout
+      
+      
+      
+/error:
+  displayName: error resource
+  get:
+    description: 
+    queryParameters:
+      id:
+        displayName: id
+        description:
+        example: 404
+        required: true

@@ -4,11 +4,11 @@ import os.path
 import pyraml.parser
 from pyraml.entities import RamlRoot, RamlTrait, RamlBody, RamlResourceType
 
-fixtures_dir = os.path.join(os.path.dirname(__file__), '../', 'samples')
+fixtures_dir = os.path.join(os.path.dirname(__file__), '..', 'samples')
 
 
 def test_parse_traits_with_schema():
-    p = pyraml.parser.load(os.path.join(fixtures_dir, '../samples/media-type.yaml'))
+    p = pyraml.parser.load(os.path.join(fixtures_dir, 'media-type.yaml'))
     assert isinstance(p, RamlRoot), RamlRoot
     assert p.traits, "Property `traits` should be set"
     assert len(p.traits) == 1, p.traits
@@ -26,7 +26,7 @@ def test_parse_traits_with_schema():
 
 
 def test_parse_raml_with_many_traits():
-    p = pyraml.parser.load(os.path.join(fixtures_dir, '../samples/full-config.yaml'))
+    p = pyraml.parser.load(os.path.join(fixtures_dir, 'full-config.yaml'))
     assert isinstance(p, RamlRoot), RamlRoot
     assert p.traits, "Property `traits` should be set"
     assert len(p.traits) == 2, p.traits
@@ -37,7 +37,7 @@ def test_parse_raml_with_many_traits():
 
 
 def test_parse_resource_type_with_references_to_traits():
-    p = pyraml.parser.load(os.path.join(fixtures_dir, '../samples/media-type.yaml'))
+    p = pyraml.parser.load(os.path.join(fixtures_dir, 'media-type.yaml'))
     assert isinstance(p, RamlRoot), RamlRoot
     assert p.resourceTypes, "Property `traits` should be set"
     assert len(p.resourceTypes)

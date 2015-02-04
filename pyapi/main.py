@@ -7,6 +7,10 @@ from pyapi.libraries.pyraml_parser_master import pyraml
 from pyapi.libraries.pyraml_parser_master.pyraml import parser
 from pyapi.libraries.pyraml_parser_master.pyraml.entities import RamlResource, RamlMethod, RamlQueryParameter
 
+from rdflib import Namespace, Literal
+from rdflib.namespace import RDF, RDFS, OWL
+from rdflib import Graph, BNode, URIRef
+
 class API():
 
     resources = []
@@ -51,10 +55,6 @@ class API():
 
         print yaml.dump(raml_document, default_flow_style=False)
 
-    def to_hydra(self):
-
-        return 1
-
     def to_yaml_swagger(self):
 
         swagger_document = {}
@@ -89,8 +89,54 @@ class API():
 
         print(json_doc)
 
+    def to_hydra(self):
 
-# api = API()
-# api.parse("dweetIO.raml")
-# api.version = 2.0
-# print api.to_yaml_swagger()
+        g = Graph()
+
+        hydra = Namespace("http://www.w3.org/ns/hydra/core#")
+        demo = Namespace("http://www.deepgraphs.org/demo#")
+
+        demoref = URIRef("http://www.deepgraphs.org/demo#")
+
+        g.add((demoref, RDF.type, OWL.Ontology))
+
+        for resource in self.resources:
+            link = URIRef("http://www.deepgraphs.org/demo#"+str(resource)) #str(self.resources[resource].displayName))
+            g.add((link, RDFS.label, Literal(self.resources[resource].displayName)))
+            g.add((link, RDFS.isDefinedBy, demoref))
+            g.add((link, RDFS.range, hydra.Resource))
+            for method in ['get','post','delete','put']:
+                if method in self.resources[resource].methods:
+                    # d[resource][method]['parameters'] = {}
+
+                    operation = BNode()
+                    g.add((operation, RDF.type, hydra.Operation))
+                    g.add((operation, RDFS.comment, Literal(self.resources[resource].methods[method].description)))
+                    g.add((operation, hydra.method, Literal(method.upper())))
+                    g.add((operation, hydra.expects, demo.InputClass))
+                    g.add((link, hydra.supportedOperations, operation))
+
+                    if self.resources[resource].methods[method].queryParameters == None:
+                        continue
+
+                    for parameter in self.resources[resource].methods[method].queryParameters:
+                        param = self.resources[resource].methods[method].queryParameters[parameter]
+                        # d[resource][method]['queryParameters'][parameter] = param
+                        bNodeproperty = BNode()
+                        property = BNode()
+                        g.add((property, RDF.type, hydra.link))
+                        g.add((property, RDFS.isDefinedBy, demoref))
+                        g.add((property, RDFS.label, Literal(param.displayName)))
+                        g.add((property, RDFS.comment, Literal(param.description)))
+                        g.add((bNodeproperty, hydra.property, property))
+                        g.add((bNodeproperty, hydra.readonly, Literal(True)))
+                        g.add((operation, hydra.supportedProperties, bNodeproperty ))
+
+
+        return g.serialize(format='n3', indent=4)
+
+
+api = API()
+api.parse("bookstore.raml")
+api.version = 2.0
+print api.to_hydra()
