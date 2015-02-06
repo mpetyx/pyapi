@@ -19,23 +19,24 @@ class APISchema(Model):
 class APIQueryParameter(Model):
     name = String()
     description = String()
-    example = Or(String(),Int(),Float())
+    example = Or(String(), Int(), Float())
     displayName = String()
     type = String()
-    enum = List(Or(String(),Float(),Int()))
+    enum = List(Or(String(), Float(), Int()))
     pattern = String()
     minLength = Int()
     maxLength = Int()
     repeat = Bool()
     required = Bool()
-    default = Or(String(),Int(),Float())
-    minimum = Or(Int(),Float())
-    maximum = Or(Int(),Float())
+    default = Or(String(), Int(), Float())
+    minimum = Or(Int(), Float())
+    maximum = Or(Int(), Float())
 
 
 class APIHeader(Model):
     type = String()
     required = Bool()
+
 
 class APIBody(Model):
     schema = String()
@@ -46,6 +47,7 @@ class APIBody(Model):
     body = Map(String(), Reference("pyraml.entities.APIBody"))
     is_ = List(String(), field_name="is")
 
+
 class APIResponse(Model):
     schema = String()
     example = String()
@@ -53,6 +55,7 @@ class APIResponse(Model):
     description = String()
     headers = Map(String(), Reference(APIHeader))
     body = Reference("pyraml.entities.APIBody")
+
 
 class APITrait(Model):
     """
@@ -80,11 +83,11 @@ class APITrait(Model):
     is_ = List(String(), field_name="is")
 
 
-
 class APIResourceType(Model):
     methods = Map(String(), Reference(APITrait))
     type = String()
     is_ = List(String(), field_name="is")
+
 
 class APIMethod(Model):
     notNull = Bool()
@@ -115,4 +118,4 @@ class APIRoot(Model):
     documentation = List(Reference(APIDocumentation))
     traits = Map(String(), Reference(APITrait))
     resources = Map(String(), Reference(APIResource))
-    resourceTypes =  Map(String(), Reference(APIResourceType))
+    resourceTypes = Map(String(), Reference(APIResourceType))

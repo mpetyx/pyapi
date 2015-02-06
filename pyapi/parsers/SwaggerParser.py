@@ -1,4 +1,10 @@
-__author__ = 'ad'
+__author__ = 'mpetyx'
+
+from rdflib import Graph
+
+from Parser import Parser
+
+from pyapi.libraries import swaggerpy
 
 import contextlib
 import urllib2
@@ -10,8 +16,26 @@ from collections import OrderedDict
 
 from raml_elements import ParserRamlInclude
 from fields import String, Reference
-from entities import RamlRoot, RamlResource, RamlMethod, RamlBody, RamlResourceType, RamlTrait, RamlQueryParameter
+from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait, APIQueryParameter
 from constants import RAML_SUPPORTED_FORMAT_VERSION
+
+
+class SwaggerParser(Parser):
+    def parse(self, location):
+        api = APIRoot()
+        # api.g_version = g.g_version
+        g = swaggerpy.load_file('test-data/1.1/simple/resources.json')
+        api.title = g.title
+        api.version = g.version
+        api.baseUri = g.baseUri
+        api.protocols = g.baseUri
+        api.mediaType = g.mediaType
+        api.documentation = g.documentation
+        api.traits = g.traits
+        api.resources = g.resources
+        api.resourceTypes = g.resourceTypes
+        return api
+
 
 __all__ = ["RamlException", "RamlNotFoundException", "RamlParseException",
            "ParseContext", "load", "parse"]
@@ -98,8 +122,8 @@ def load(uri):
     :param uri: URL which points to a RAML resource or path to the RAML resource on local file system
     :type uri: str
 
-    :return: RamlRoot object
-    :rtype: pyraml.entities.RamlRoot
+    :return: APIRoot object
+    :rtype: pyraml.entities.APIRoot
     """
 
     if _is_network_resource(uri):
@@ -127,15 +151,15 @@ def parse(c, relative_path):
 
     context = ParseContext(yaml.load(c), relative_path)
 
-    root = RamlRoot(raml_version=raml_version)
+    root = APIRoot(raml_version=raml_version)
     root.title = context.get_string_property('title', True)
 
     root.baseUri = context.get_string_property('baseUri')
     root.version = context.get('version')
-    root.mediaType = context.get_string_property('mediaType')
+    # root.mediaType = context.get_string_property('mediaType')
 
-    root.documentation = context.get_property_with_schema('documentation', RamlRoot.documentation)
-    root.traits = parse_traits(context, RamlRoot.traits.field_name, root.mediaType)
+    # root.documentation = context.get_property_with_schema('documentation', APIRoot.documentation)
+    # root.traits = parse_traits(context, APIRoot.traits.field_name, root.mediaType)
     root.resourceTypes = parse_resource_type(context)
 
     resources = OrderedDict()
@@ -156,25 +180,25 @@ def parse_resource(c, property_name, parent_object, global_media_type):
     :param c:
     :type c: ParseContext
 
-    :param parent_object: RamlRoot object or RamlResource object
-    :type parent_object: RamlRoot or RamlResource
+    :param parent_object: APIRoot object or APIResource object
+    :type parent_object: APIRoot or APIResource
 
     :param property_name: resource name to extract
     :type property_name: str
 
-    :return: RamlResource  or None
-    :rtype: RamlResource
+    :return: APIResource  or None
+    :rtype: APIResource
     """
     property_value = c.get(property_name)
     if not property_value:
         return None
 
-    resource = RamlResource(uri=property_name)
+    resource = APIResource(uri=property_name)
     new_context = ParseContext(property_value, c.relative_path)
     resource.description = new_context.get_string_property("description")
     resource.displayName = new_context.get_string_property("displayName")
 
-    if isinstance(parent_object, RamlResource):
+    if isinstance(parent_object, APIResource):
         resource.parentResource = parent_object
 
     # Parse methods
@@ -186,7 +210,7 @@ def parse_resource(c, property_name, parent_object, global_media_type):
         elif _http_method in new_context.data:
             # workaround: if _http_method is already in new_context.data than
             # it's marked as !!null
-            methods[_http_method] = RamlMethod(notNull=True)
+            methods[_http_method] = APIMethod(notNull=True)
     if len(methods):
         resource.methods = methods
 
@@ -209,8 +233,8 @@ def parse_resource_type(c):
     :param c: ParseContext object
     :type c: ParseContext
 
-    :return: RamlResource  or None
-    :rtype: RamlResource
+    :return: APIResource  or None
+    :rtype: APIResource
     """
 
     json_resource_types = c.get('resourceTypes')
@@ -225,9 +249,9 @@ def parse_resource_type(c):
     for rtype_name in resource_types_context:
         new_c = ParseContext(resource_types_context.get(rtype_name), resource_types_context.relative_path)
 
-        rtype_obj = RamlResourceType()
+        rtype_obj = APIResourceType()
         rtype_obj.type = new_c.get_string_property("type")
-        rtype_obj.is_ = new_c.get_property_with_schema("is", RamlResourceType.is_)
+        rtype_obj.is_ = new_c.get_property_with_schema("is", APIResourceType.is_)
 
         # Parse methods
         methods = OrderedDict()
@@ -235,12 +259,12 @@ def parse_resource_type(c):
             _method = new_c.get(_http_method)
             if _method:
                 _method = ParseContext(_method, new_c.relative_path).get_property_with_schema('traits',
-                                                                                              Reference(RamlTrait))
+                                                                                              Reference(APITrait))
                 methods[_http_method] = _method
             elif _http_method in new_c.data:
                 # workaround: if _http_method is already in new_context.data than
                 # it's marked as !!null
-                _method = RamlMethod(notNull=True)
+                _method = APIMethod(notNull=True)
                 methods[_http_method] = _method
         if len(methods):
             rtype_obj.methods = methods
@@ -254,17 +278,17 @@ def parse_method(c, global_media_type):
     """
     Parse RAML method
 
-    :param c: ParseContext object which contains RamlMethod
+    :param c: ParseContext object which contains APIMethod
     :type c: ParseContext
 
-    :param parent_object: RamlRoot, RamlResource or RamlResourceType object
-    :type parent_object: RamlRoot or RamlResource or RamlResourceType
+    :param parent_object: APIRoot, APIResource or APIResourceType object
+    :type parent_object: APIRoot or APIResource or APIResourceType
 
-    :return: RamlMethod or None
-    :rtype: RamlMethod
+    :return: APIMethod or None
+    :rtype: APIMethod
     """
 
-    method = RamlMethod()
+    method = APIMethod()
 
     method.description = c.get_string_property("description")
     method.body = parse_inline_body(c.get("body"), c.relative_path, global_media_type)
@@ -286,51 +310,9 @@ def parse_method(c, global_media_type):
                 new_parsed_responses[resp_code] = parsed_data
         method.responses = new_parsed_responses
 
-    method.queryParameters = c.get_property_with_schema("queryParameters", RamlMethod.queryParameters)
+    method.queryParameters = c.get_property_with_schema("queryParameters", APIMethod.queryParameters)
 
     return method
-
-
-def parse_traits(c, property_name, global_media_type):
-    """
-    Parse and extract RAML trait from context field with name `property_name`
-
-    :param c: parsing context
-    :type c: ParseContext
-
-    :param property_name: resource name to extract from context
-    :type property_name: str
-
-    :return: dict of (str,RamlTrait) or None
-    :rtype: dict of (str,RamlTrait)
-    """
-    property_value = c.get(property_name)
-    if not property_value:
-        return None
-
-    traits = {}
-
-    # We got list of dict from c.get(property_name) so we need to iterate over it
-    for trait_raw_value in property_value:
-        traits_context = ParseContext(trait_raw_value, c.relative_path)
-
-        for trait_name in traits_context:
-            new_context = ParseContext(traits_context.get(trait_name), traits_context.relative_path)
-            trait = RamlTrait()
-
-            for field_name, field_class in RamlTrait._structure.iteritems():
-                # parse string fields
-                if isinstance(field_class, String):
-                    setattr(trait, field_name, new_context.get_string_property(field_class.field_name))
-            trait.queryParameters = c.get_property_with_schema(RamlTrait.queryParameters.field_name,
-                                                               RamlTrait.queryParameters)
-            trait.body = parse_body(ParseContext(new_context.get("body"), new_context.relative_path), global_media_type)
-            trait.is_ = new_context.get_property_with_schema(RamlTrait.is_.field_name, RamlTrait.is_)
-            trait.responses = c.get_property_with_schema(RamlTrait.responses.field_name, RamlTrait.responses)
-
-            traits[trait_name] = trait
-
-    return traits
 
 
 def parse_map_of_entities(parser, context, relative_path, parent_resource):
@@ -354,7 +336,7 @@ def parse_map_of_entities(parser, context, relative_path, parent_resource):
             else:
                 # workaround: if `key` is already in `context` than
                 # it's marked as !!null
-                res[key] = RamlMethod(notNull=True)
+                res[key] = APIMethod(notNull=True)
 
     return res
 
@@ -363,24 +345,24 @@ def parse_body(c, global_media_type):
     """
     Parse and extract resource with name
 
-    :param c: ParseContext object which contains RamlBody
+    :param c: ParseContext object which contains APIBody
     :type c: ParseContext
 
-    :return: RamlBody or None
-    :rtype: RamlBody
+    :return: APIBody or None
+    :rtype: APIBody
     """
 
     if c.data is None:
         return None
 
-    body = RamlBody()
+    body = APIBody()
     body.example = c.get_string_property("example")
     body.body = parse_inline_body(c.get("body"), c.relative_path, global_media_type)
 
     body.schema = c.get_string_property("schema")
     body.example = c.get_string_property("example")
-    body.formParameters = c.get_property_with_schema("formParameters", RamlBody.formParameters)
-    body.headers = c.get_property_with_schema("headers", RamlBody.headers)
+    body.formParameters = c.get_property_with_schema("formParameters", APIBody.formParameters)
+    body.headers = c.get_property_with_schema("headers", APIBody.headers)
 
     return body
 
@@ -393,8 +375,8 @@ def parse_inline_body(data, relative_path, global_media_type):
     :type data: dict
     :param relative_path: relative path on filesystem to a RAML resource for handling `include` tags
     :type relative_path: str
-    :return: OrderedDict of RamlBody or None
-    :rtype: OrderedDict of RamlBody
+    :return: OrderedDict of APIBody or None
+    :rtype: OrderedDict of APIBody
     """
     if data is None:
         return None
@@ -402,10 +384,10 @@ def parse_inline_body(data, relative_path, global_media_type):
     res = OrderedDict()
 
     # Data could be map of mime_type => body, http_code => body but also it could be direct
-    # value of RamlBody with global mediaType (grrr... so consistent)
-    for field_name in RamlBody._structure:
+    # value of APIBody with global mediaType (grrr... so consistent)
+    for field_name in APIBody._structure:
         if field_name in data:
-            # This is direct value of RamlBody
+            # This is direct value of APIBody
             parsed_data = parse_body(ParseContext(data, relative_path), global_media_type)
             res[global_media_type] = parsed_data
             return res
@@ -415,7 +397,7 @@ def parse_inline_body(data, relative_path, global_media_type):
             res[key] = parse_body(ParseContext(body_data, relative_path), global_media_type)
         else:
             # body marked as !!null
-            res[key] = RamlBody(notNull=True)
+            res[key] = APIBody(notNull=True)
 
     return res
 

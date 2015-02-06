@@ -11,6 +11,7 @@ import requests
 
 HYDRA = Namespace("http://www.w3.org/ns/hydra/core#")
 
+
 class HydraOperation:
     def __init__(self, subj, graph):
         self.type = graph.value(subj, RDF.type)
@@ -25,6 +26,7 @@ class HydraOperation:
         print "method  : ", self.method
         print "expects : ", self.expects
         print "returns : ", self.returns
+
 
 class HydraProperty:
     def __init__(self, subj, graph):
@@ -50,6 +52,7 @@ class HydraProperty:
             print " writeonly",
         print
 
+
 class HydraClass:
     def __init__(self, subj, graph):
         self.subj = subj
@@ -58,9 +61,8 @@ class HydraClass:
         for prop in graph.objects(subj, HYDRA.supportedProperty):
             self.properties.append(HydraProperty(prop, graph))
         for op in graph.objects(subj, HYDRA.supportedOperation):
-            # print "paw na valw operation"
             ntriples = [triple for triple in graph.triples((op, None, None))]
-            if len(ntriples)==0:
+            if len(ntriples) == 0:
                 g = Graph().parse(location=op, format="json-ld")
                 graph += g
             self.operations.append(HydraOperation(op, graph))
@@ -68,11 +70,12 @@ class HydraClass:
     def dump(self):
         print "Class : ", self.subj
         print self.subj, " properties :"
-        for prop in self.properties :
+        for prop in self.properties:
             prop.dump()
         print self.subj, " operations :"
         for op in self.operations:
             op.dump()
+
 
 class ApiDoc:
     def __init__(self, location):
@@ -84,7 +87,7 @@ class ApiDoc:
             raise Exception("no API Documentation found")
         for cls in self.graph.objects(self.apidoc, HYDRA.supportedClass):
             ntriples = [triple for triple in self.graph.triples((cls, None, None))]
-            if len(ntriples)==0:
+            if len(ntriples) == 0:
                 g = Graph().parse(location=cls, format="json-ld")
                 self.graph += g
             self.classes[cls] = HydraClass(cls, self.graph)
@@ -96,27 +99,30 @@ class ApiDoc:
         for cls, clsobj in self.classes.items():
             clsobj.dump()
 
+
 def parse_link(lvalue):
     """parse Link HTTP header"""
     tmp = lvalue.split("; ")
 
     rel = None
     link = tmp[0]
-    if link[0] =="<":
+    if link[0] == "<":
         link = link[1:-1]
 
     k, v = tmp[1].split('=')
-    if k=="rel":
+    if k == "rel":
         rel = v
     if rel is not None:
-        if rel[0]=='"':
+        if rel[0] == '"':
             rel = rel[1:-1]
 
     return link, rel
 
+
 class HypermediaControl:
     def __init__(self, url):
         self.url = url
+
 
 class Hypermedia:
     def __init__(self, doc=None):
@@ -132,7 +138,7 @@ class Hypermedia:
         hresp = requests.head(location)
         if 'link' in hresp.headers:
             link, rel = parse_link(hresp.headers["link"])
-            #print link, rel
+            # print link, rel
             if rel is not None:
                 self.doc = ApiDoc(link)
                 use_entry = False
@@ -174,26 +180,27 @@ class Hypermedia:
                             for op in self.doc.graph.objects(p, HYDRA.supportedOperation):
                                 link["operations"].append(HydraOperation(op, self.doc.graph))
                             self.controls.append(link)
-                            print pref, o, [str(l.method) for l in link["operations"]]
-                        else:
-                            print o, " is ", ptype
+                            # print pref, o, [str(l.method) for l in link["operations"]]
+                            # else:
+                            # print o, " is ", ptype
 
         return True
 
 
-
-if __name__ == "__main__":
-    links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/contexts/EntryPoint.jsonld', 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
-    for link in links:
-        print "I will now check the : ",link
-        hm = Hypermedia()
-        if hm.open(link):
-            print hm.doc.apidoc
-            for klassi in hm.doc.classes:
-                print "######################"
-                print hm.doc.classes[klassi].dump()
-                # for operation in  hm.doc.classes[klassi].operations:
-                #     print
-            break
-        break
-            # print len(hm.members), len(hm.controls)
+# if __name__ == "__main__":
+# links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/contexts/EntryPoint.jsonld', 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
+#     links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
+#
+#     for link in links:
+#         print "I will now check the : ",link
+#         hm = Hypermedia()
+#         if hm.open(link):
+#             print hm.doc.apidoc
+#             for klassi in hm.doc.classes:
+#                 print "######################"
+#                 print hm.doc.classes[klassi].dump()
+#                 # for operation in  hm.doc.classes[klassi].operations:
+#                 #     print
+#             break
+#         break
+#             # print len(hm.members), len(hm.controls)

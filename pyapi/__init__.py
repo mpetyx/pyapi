@@ -1,8 +1,5 @@
 __author__ = 'mpetyx'
 
-
-import HydraParser
-import RamlParser
-import SwaggerParser
+from pyapi.parsers import RamlParser
 
 from main import API

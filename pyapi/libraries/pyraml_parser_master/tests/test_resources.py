@@ -136,9 +136,11 @@ def test_resource_body():
     assert not get_method.body["application/json"].formParameters
 
     assert get_method.body["application/json"].schema, get_method.body["application/json"].schema
-    assert isinstance(get_method.body["application/json"].schema, basestring), get_method.body["application/json"].schema
+    assert isinstance(get_method.body["application/json"].schema, basestring), get_method.body[
+        "application/json"].schema
     assert get_method.body["application/json"].example, get_method.body["application/json"].example
-    assert isinstance(get_method.body["application/json"].example, basestring), get_method.body["application/json"].example
+    assert isinstance(get_method.body["application/json"].example, basestring), get_method.body[
+        "application/json"].example
 
     # For multipart/form-data we have only formParameters
     assert "multipart/form-data" in get_method.body

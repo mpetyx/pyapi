@@ -464,7 +464,7 @@ class Reference(BaseField):
         elif value is None:
             # Value empty, just instantiate empty `ref_class`
             value = self.ref_class()
-        #elif isinstance(value, list):
+        # elif isinstance(value, list):
         #    # Value maybe is list of `ref_class`
         #    value = []
         else:

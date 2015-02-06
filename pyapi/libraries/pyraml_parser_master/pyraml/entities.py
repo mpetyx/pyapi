@@ -19,18 +19,18 @@ class RamlSchema(Model):
 class RamlQueryParameter(Model):
     name = String()
     description = String()
-    example = Or(String(),Int(),Float())
+    example = Or(String(), Int(), Float())
     displayName = String()
     type = String()
-    enum = List(Or(String(),Float(),Int()))
+    enum = List(Or(String(), Float(), Int()))
     pattern = String()
     minLength = Int()
     maxLength = Int()
     repeat = Bool()
     required = Bool()
-    default = Or(String(),Int(),Float())
-    minimum = Or(Int(),Float())
-    maximum = Or(Int(),Float())
+    default = Or(String(), Int(), Float())
+    minimum = Or(Int(), Float())
+    maximum = Or(Int(), Float())
 
 
 class RamlHeader(Model):
@@ -141,4 +141,4 @@ class RamlRoot(Model):
     documentation = List(Reference(RamlDocumentation))
     traits = Map(String(), Reference(RamlTrait))
     resources = Map(String(), Reference(RamlResource))
-    resourceTypes =  Map(String(), Reference(RamlResourceType))
+    resourceTypes = Map(String(), Reference(RamlResourceType))
