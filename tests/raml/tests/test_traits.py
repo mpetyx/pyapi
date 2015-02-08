@@ -1,9 +1,11 @@
 __author__ = 'ad'
 
 import os.path
+
 from pyapi.libraries.pyraml_parser_master import pyraml
 from pyapi.libraries.pyraml_parser_master.pyraml import parser
 from pyapi.libraries.pyraml_parser_master.pyraml.entities import RamlRoot, RamlTrait, RamlBody, RamlResourceType
+
 
 fixtures_dir = os.path.join(os.path.dirname(__file__), '../', 'samples')
 

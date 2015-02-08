@@ -1,4 +1,4 @@
-from lettuce import step, world
+from lettuce import step
 
 
 @step("I should print the documentation")

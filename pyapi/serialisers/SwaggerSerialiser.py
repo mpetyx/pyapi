@@ -1,7 +1,10 @@
 __author__ = 'mpetyx'
 
+import json
+
+import yaml
+
 from Serialiser import Serialiser
-import yaml, json
 
 
 class SwaggerSerialiser(Serialiser):

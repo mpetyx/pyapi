@@ -8,10 +8,12 @@
 """
 
 import logging
+import urlparse
+
 import requests
 import requests.auth
-import urlparse
 import websocket
+
 
 log = logging.getLogger(__name__)
 

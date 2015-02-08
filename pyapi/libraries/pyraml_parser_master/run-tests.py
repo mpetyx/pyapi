@@ -1,9 +1,11 @@
 __author__ = 'ad'
 
-import nose
 import sys
 import os
 import os.path
+
+import nose
+
 
 if __name__ == '__main__':
     project_dir = os.path.abspath(os.path.dirname(__file__))

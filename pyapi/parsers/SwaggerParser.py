@@ -1,22 +1,19 @@
 __author__ = 'mpetyx'
 
-from rdflib import Graph
-
-from Parser import Parser
-
-from pyapi.libraries import swaggerpy
-
 import contextlib
 import urllib2
 import mimetypes
 import os.path
 import urlparse
-import yaml
 from collections import OrderedDict
 
+import yaml
+
+from Parser import Parser
+from pyapi.libraries import swaggerpy
 from raml_elements import ParserRamlInclude
 from fields import String, Reference
-from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait, APIQueryParameter
+from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait
 from constants import RAML_SUPPORTED_FORMAT_VERSION
 
 

@@ -1,7 +1,8 @@
 __author__ = 'mpetyx'
 
-from Serialiser import Serialiser
 import yaml
+
+from Serialiser import Serialiser
 
 
 class RamlSerialiser(Serialiser):
@@ -28,7 +29,7 @@ class RamlSerialiser(Serialiser):
                         continue
                     for parameter in self.resources[resource].methods[method].queryParameters:
                         # queryParam1.example == "two", queryParam1
-                        #   queryParam1.enum == ["one", "two", "three"], queryParam1
+                        # queryParam1.enum == ["one", "two", "three"], queryParam1
                         #   queryParam1.displayName == "name name", queryParam1
                         #   queryParam1.description == "name description"
                         #   queryParam1.default == "three", queryParam1

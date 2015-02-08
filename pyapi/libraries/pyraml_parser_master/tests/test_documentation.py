@@ -1,9 +1,10 @@
 __author__ = 'ad'
 
-from nose.tools import raises, eq_
 import os.path
+
 import pyraml.parser
 from pyraml.entities import RamlRoot, RamlDocumentation
+
 
 fixtures_dir = os.path.join(os.path.dirname(__file__), '..', 'samples')
 

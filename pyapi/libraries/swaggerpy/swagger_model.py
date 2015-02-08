@@ -13,6 +13,7 @@ import urlparse
 from swaggerpy.http_client import SynchronousHttpClient
 from swaggerpy.processors import SwaggerProcessor, SwaggerError
 
+
 SWAGGER_VERSIONS = ["1.1", "1.2"]
 
 SWAGGER_PRIMITIVES = [

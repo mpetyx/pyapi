@@ -9,10 +9,11 @@ import logging
 import os.path
 import re
 import urllib
-import swaggerpy
 
+import swaggerpy
 from swaggerpy.http_client import SynchronousHttpClient
 from swaggerpy.processors import WebsocketProcessor, SwaggerProcessor
+
 
 log = logging.getLogger(__name__)
 

@@ -1,12 +1,14 @@
 __author__ = 'ad'
 
-from nose.tools import raises, eq_
 import os.path
+
 from pyapi.libraries.pyraml_parser_master import pyraml
 from pyapi.libraries.pyraml_parser_master.pyraml import parser
 from pyapi.libraries.pyraml_parser_master.pyraml.entities import RamlRoot, RamlDocumentation
 
+
 fixtures_dir = os.path.join(os.path.dirname(__file__), '../', 'samples')
+
 
 def test_include_raml():
     p = parser.load(os.path.join(fixtures_dir, '../samples/root-elements-includes.yaml'))
@@ -22,12 +24,13 @@ def test_include_raml():
 
     assert p.documentation[0].title == "Home", p.documentation[0].title
     assert p.documentation[0].content == \
-        """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna...
-""", p.documentation[0].content
+           """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+   eiusmod tempor incididunt ut labore et dolore magna...
+   """, p.documentation[0].content
 
     assert p.documentation[1].title == "Section", p.documentation[0].title
     assert p.documentation[1].content == "section content", p.documentation[1].content
+
 
 def test_numeric_version():
     p = pyraml.parser.load(os.path.join(fixtures_dir, '../samples/numeric-api-version.yaml'))

@@ -1,17 +1,9 @@
 __author__ = 'mpetyx'
 
-from rdflib import Graph
-
-from Parser import Parser
-import contextlib
-import urllib2
-import mimetypes
-import os.path
-import urlparse
-import yaml
 from collections import OrderedDict
 
-from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait, APIQueryParameter
+from Parser import Parser
+from pyapi.entities import APIRoot, APIResource, APIMethod
 from pyapi.libraries.pyhydra import Hypermedia
 
 
@@ -23,7 +15,7 @@ class HydraParser(Parser):
         hm.open(location)
         # if hm.open(location):
         # print hm.doc.apidoc
-        #     for klassi in hm.doc.classes:
+        # for klassi in hm.doc.classes:
         #         print "######################"
         #         print hm.doc.classes[klassi].dump()
         # for operation in  hm.doc.classes[klassi].operations:

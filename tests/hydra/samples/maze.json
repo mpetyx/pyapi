@@ -6,13 +6,34 @@
       "supportedProperties": "hydra:supportedProperties",
       "supportedOperations": "hydra:supportedOperations",
       "id": "@id",
-      "start": { "@id": "start", "@type": "@id" },
-      "maze": { "@id": "maze", "@type": "@id" },
-      "north": { "@id": "north", "@type": "@id" },
-      "east": { "@id": "east", "@type": "@id" },
-      "south": { "@id": "south", "@type": "@id" },
-      "west": { "@id": "west", "@type": "@id" },
-      "exit": { "@id": "exit", "@type": "@id" }
+      "start": {
+        "@id": "start",
+        "@type": "@id"
+      },
+      "maze": {
+        "@id": "maze",
+        "@type": "@id"
+      },
+      "north": {
+        "@id": "north",
+        "@type": "@id"
+      },
+      "east": {
+        "@id": "east",
+        "@type": "@id"
+      },
+      "south": {
+        "@id": "south",
+        "@type": "@id"
+      },
+      "west": {
+        "@id": "west",
+        "@type": "@id"
+      },
+      "exit": {
+        "@id": "exit",
+        "@type": "@id"
+      }
     }
   ],
   "@id": "http://www.hydra-cg.com/examples/maze",
@@ -26,8 +47,14 @@
       "label": "Maze",
       "comment": "A maze, consisting of multiple cells.",
       "supportedProperties": [
-        { "property": "name", "readonly": true },
-        { "property": "start", "readonly": true }
+        {
+          "property": "name",
+          "readonly": true
+        },
+        {
+          "property": "start",
+          "readonly": true
+        }
       ]
     },
     {
@@ -51,12 +78,30 @@
       "label": "Cell",
       "comment": "A cell of a maze.",
       "supportedProperties": [
-        { "property": "name", "readonly": true },
-        { "property": "maze", "readonly": true },
-        { "property": "north", "readonly": true },
-        { "property": "east", "readonly": true },
-        { "property": "south", "readonly": true },
-        { "property": "west", "readonly": true }
+        {
+          "property": "name",
+          "readonly": true
+        },
+        {
+          "property": "maze",
+          "readonly": true
+        },
+        {
+          "property": "north",
+          "readonly": true
+        },
+        {
+          "property": "east",
+          "readonly": true
+        },
+        {
+          "property": "south",
+          "readonly": true
+        },
+        {
+          "property": "west",
+          "readonly": true
+        }
       ]
     },
     {
@@ -121,12 +166,30 @@
       "label": "Entrance",
       "comment": "The entrance of a maze.",
       "supportedProperties": [
-        { "property": "name", "readonly": true },
-        { "property": "maze", "readonly": true },
-        { "property": "north", "readonly": true },
-        { "property": "east", "readonly": true },
-        { "property": "south", "readonly": true },
-        { "property": "west", "readonly": true }
+        {
+          "property": "name",
+          "readonly": true
+        },
+        {
+          "property": "maze",
+          "readonly": true
+        },
+        {
+          "property": "north",
+          "readonly": true
+        },
+        {
+          "property": "east",
+          "readonly": true
+        },
+        {
+          "property": "south",
+          "readonly": true
+        },
+        {
+          "property": "west",
+          "readonly": true
+        }
       ]
     },
     {
@@ -136,12 +199,30 @@
       "label": "Exit",
       "comment": "The exit of a maze.",
       "supportedProperties": [
-        { "property": "name", "readonly": true },
-        { "property": "maze", "readonly": true },
-        { "property": "north", "readonly": true },
-        { "property": "east", "readonly": true },
-        { "property": "south", "readonly": true },
-        { "property": "west", "readonly": true }
+        {
+          "property": "name",
+          "readonly": true
+        },
+        {
+          "property": "maze",
+          "readonly": true
+        },
+        {
+          "property": "north",
+          "readonly": true
+        },
+        {
+          "property": "east",
+          "readonly": true
+        },
+        {
+          "property": "south",
+          "readonly": true
+        },
+        {
+          "property": "west",
+          "readonly": true
+        }
       ]
     },
     {
@@ -150,7 +231,10 @@
       "comment": "A user.",
       "@type": "hydra:Class",
       "supportedProperties": [
-        { "property": "twitter", "required": true }
+        {
+          "property": "twitter",
+          "required": true
+        }
       ]
     },
     {

@@ -5,13 +5,15 @@ import urllib2
 import mimetypes
 import os.path
 import urlparse
-import yaml
 from collections import OrderedDict
+
+import yaml
 
 from raml_elements import ParserRamlInclude
 from fields import String, Reference
-from entities import RamlRoot, RamlResource, RamlMethod, RamlBody, RamlResourceType, RamlTrait, RamlQueryParameter
+from entities import RamlRoot, RamlResource, RamlMethod, RamlBody, RamlResourceType, RamlTrait
 from constants import RAML_SUPPORTED_FORMAT_VERSION
+
 
 __all__ = ["RamlException", "RamlNotFoundException", "RamlParseException",
            "ParseContext", "load", "parse"]

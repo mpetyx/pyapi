@@ -2,7 +2,6 @@ __author__ = 'mpetyx'
 
 from pyapi.libraries.pyraml_parser_master import pyraml
 from pyapi.libraries.pyraml_parser_master.pyraml import parser
-from pyapi.libraries.pyraml_parser_master.pyraml.entities import RamlResource, RamlMethod, RamlQueryParameter
 from Parser import Parser
 
 from pyapi.entities import APIRoot

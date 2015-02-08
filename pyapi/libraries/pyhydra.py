@@ -1,6 +1,5 @@
 __author__ = 'mpetyx'
 
-import sys
 from rdflib import Graph, Namespace
 from rdflib.namespace import RDF, RDFS
 import requests
@@ -189,7 +188,7 @@ class Hypermedia:
 
 # if __name__ == "__main__":
 # links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/contexts/EntryPoint.jsonld', 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
-#     links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
+# links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
 #
 #     for link in links:
 #         print "I will now check the : ",link

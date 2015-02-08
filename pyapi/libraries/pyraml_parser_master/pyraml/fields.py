@@ -1,8 +1,9 @@
 __author__ = 'ad'
 
 from abc import ABCMeta
-import importhelpers
 from collections import OrderedDict
+
+import importhelpers
 
 
 class BaseField(object):
@@ -465,7 +466,7 @@ class Reference(BaseField):
             # Value empty, just instantiate empty `ref_class`
             value = self.ref_class()
         # elif isinstance(value, list):
-        #    # Value maybe is list of `ref_class`
+        # # Value maybe is list of `ref_class`
         #    value = []
         else:
             raise ValueError("{!r} expected to be dict".format(value))

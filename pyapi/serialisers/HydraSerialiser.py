@@ -1,9 +1,10 @@
 __author__ = 'mpetyx'
 
-from Serialiser import Serialiser
 from rdflib import Namespace, Literal
 from rdflib.namespace import RDF, RDFS, OWL
 from rdflib import Graph, BNode, URIRef
+
+from Serialiser import Serialiser
 
 
 class HydraSerialiser(Serialiser):

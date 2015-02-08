@@ -1,9 +1,12 @@
 __author__ = 'ad'
 
 import mimetypes
+
 import yaml
+
 from raml_elements import ParserRamlInclude
 from constants import RAML_CONTENT_MIME_TYPES
+
 
 # Bootstrapping: making able mimetypes package to recognize RAML and YAML file types
 for mtype in RAML_CONTENT_MIME_TYPES:

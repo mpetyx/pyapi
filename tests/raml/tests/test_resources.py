@@ -2,9 +2,11 @@ __author__ = 'ad'
 
 import os.path
 from collections import OrderedDict
+
 from pyapi.libraries.pyraml_parser_master import pyraml
 from pyapi.libraries.pyraml_parser_master.pyraml import parser
 from pyapi.libraries.pyraml_parser_master.pyraml.entities import RamlResource, RamlMethod, RamlQueryParameter
+
 
 fixtures_dir = os.path.join(os.path.dirname(__file__), '../', 'samples')
 
