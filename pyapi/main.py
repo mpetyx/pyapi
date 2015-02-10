@@ -62,4 +62,4 @@ api.parse("petstore.json", language='swagger')
 # print api.serialise(language="raml", format="yaml")
 #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
-print api.serialise(language="swagger",format='json')
+print api.serialise(language="raml",format='json')

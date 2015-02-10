@@ -11,7 +11,7 @@ import json
 
 from Parser import Parser
 from pyapi.libraries import swaggerpy
-from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait
+from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait, APIQueryParameter
 
 
 class SwaggerParser(Parser):
@@ -28,12 +28,10 @@ class SwaggerParser(Parser):
         api.protocols = data['schemes']
         # api.mediaType = g.mediaType
         # api.documentation = g.documentation
-        # api.traits = g.traits
-        # api.resources = g.resources
         # api.resourceTypes = g.resourceTypes
 
         resources = OrderedDict()
-        for klass in data['paths']:
+        for path in data['paths']:
             resource = APIResource()
             resource.displayName = "yolo"
             resource.description = "example of the api"
@@ -41,18 +39,29 @@ class SwaggerParser(Parser):
 
             methods = OrderedDict()
 
-            for operation in data['paths'][klass]:
+            for operation in data['paths'][path]:
                 method = APIMethod(notNull=True)
-                try:
-                    method.description = data['paths'][klass][operation]['summary']
-                except:
-                    method.description = data['paths'][klass][operation]['description']
+                if "summary" in data['paths'][path][operation]:
+                    method.description = data['paths'][path][operation]['summary']
+                else:
+                    method.description = data['paths'][path][operation]['description']
+
+                if "parameters" in data['paths'][path][operation]:
+                    parameters = OrderedDict()
+                    index = 0
+                    while index < len(data['paths'][path][operation]['parameters']):
+                        param = APIQueryParameter()
+                        param.name = data['paths'][path][operation]['parameters'][index]['name']
+                        index = index + 1
+                        parameters[param.name]=param
+                    method.queryParameters = parameters
                 methods[str(operation)] = method
+
 
             if len(methods):
                 resource.methods = methods
 
-            resources[str(klass)] = resource  #parse_resource(context, property_name, root, root.mediaType)
+            resources[str(path)] = resource
 
         if resources > 0:
             api.resources = resources
