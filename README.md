@@ -13,6 +13,14 @@ It provides parsers and serialisers for
 - [Hydra](http://www.hydra-cg.com/ "Hydra") 
 - [RAML](http://raml.org/)
 - [Swagger](http://swagger.io/)   
+- WADL 
+
+## 3rd Party Libraries
+
+[Wadl to Swagger](https://github.com/rackerlabs/wadl2swagger)
+[Raml Parser](https://github.com/an2deg/pyraml-parser)
+
+
 
 ## Examples
 

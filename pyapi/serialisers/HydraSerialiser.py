@@ -62,10 +62,10 @@ class HydraSerialiser(Serialiser):
 
         self.graph = g
 
-    def n3(self):
+    def to_n3(self):
 
         return self.graph.serialize(format='n3', indent=4)
 
-    def jsonld(self):
+    def to_jsonld(self):
 
         return self.graph.serialize(format='json-ld', indent=4)

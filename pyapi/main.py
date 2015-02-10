@@ -9,6 +9,7 @@ from serialisers.SwaggerSerialiser import SwaggerSerialiser
 
 from parsers.RamlParser import RamlParser
 from parsers.HydraParser import HydraParser
+from parsers.SwaggerParser import SwaggerParser
 
 
 class API():
@@ -26,7 +27,7 @@ class API():
             self.atlas = HydraParser().parse(location)
             self.resources = self.atlas.resources
         elif "swagger" in language.lower():
-            self.atlas = pyraml.parser.load(location)
+            self.atlas = SwaggerParser().parse(location)
             self.resources = self.atlas.resources
         else:
             return "Not supported language yet."
@@ -39,9 +40,9 @@ class API():
             g = HydraSerialiser()
             g.to_hydra(self.resources)
             if "json-ld" == format:
-                return g.jsonld()
+                return g.to_jsonld()
             else:
-                return g.n3()
+                return g.to_n3()
         elif "swagger" in language.lower():
             g = SwaggerSerialiser()
             if format == "json":
@@ -56,9 +57,9 @@ class API():
 
 api = API()
 # RAML TEST
-# api.parse("bookstore.raml", language='raml')
+api.parse("petstore.json", language='swagger')
 # api.version = 2.0
 # print api.serialise(language="raml", format="yaml")
-
-api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
-print api.serialise(language="raml")
+#
+# api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
+print api.serialise(language="swagger",format='json')

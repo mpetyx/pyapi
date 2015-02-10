@@ -152,11 +152,15 @@ class Hypermedia:
         """
         is_apidoc = False
         if self.doc is None:
-            is_apidoc = self.check_documentation(location)
+            try:
+                is_apidoc = self.check_documentation(location)
+            except:
+                pass
         if is_apidoc:
             return False
 
         g = Graph().parse(location=location, format="json-ld")
+        # print "parser the graph!!!"
         # print g.serialize(format="n3")
         for subj, obj in g.subject_objects(RDF.type):
             # print subj, obj, obj in self.doc.classes
