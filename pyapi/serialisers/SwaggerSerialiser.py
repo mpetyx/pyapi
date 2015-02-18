@@ -8,34 +8,19 @@ from Serialiser import Serialiser
 
 
 class SwaggerSerialiser(Serialiser):
-    def to_yaml(self, resources):
-        self.resources = resources
-        swagger_document = {}
-        swagger_document["swagger"] = '2.0'
-        swagger_document['paths'] = {}
-        paths = {}
 
-        for resource in self.resources:
-            d = {resource: {'is': "[paged]", 'displayName': self.resources[resource].displayName}}
-            for method in ['get', 'post', 'delete', 'put']:
-                if method in self.resources[resource].methods:
-                    d[resource][method] = {'description': self.resources[resource].methods[
-                        method].description}  # , 'type': self.resources[resource].methods[method].type}
-                    d[resource][method]['parameters'] = {}
-                    # for parameter in self.resources[resource].methods[method].queryParameters:
-                    #
-                    # param = self.resources[resource].methods[method].queryParameters[parameter]
+    def __init__(self, resources):
+        Serialiser.__init__(self)
+        self.nested_resources(resources=resources,language="swagger")
 
-                    # d[resource][method]['queryParameters'][parameter] = param
-            paths.update(d)
 
-        swagger_document['paths'].update(paths)
+    def to_yaml(self):
 
-        return yaml.dump(swagger_document, default_flow_style=False)
+        return yaml.dump(self.swagger_document, default_flow_style=False)
 
     def to_json(self):
 
 
-        data = yaml.load(self.to_yaml(self.resources))
+        data = yaml.load(self.to_yaml())
         return json.dumps(data)
 

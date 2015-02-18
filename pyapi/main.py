@@ -41,12 +41,11 @@ class API():
             else:
                 return g.to_n3()
         elif "swagger" in language.lower():
-            g = SwaggerSerialiser()
+            g = SwaggerSerialiser(self.resources)
             if format == "json":
-                g.to_yaml(self.resources)
                 return g.to_json()
             else:
-                return g.to_yaml(self.resources)
+                return g.to_yaml()
         else:
 
             return "Not supported language yet."
@@ -59,4 +58,4 @@ api.parse("coffeemachine.raml","raml")
 # print api.serialise(language="raml", format="yaml")
 #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
-print api.serialise(language="hydra",format="n3")
+print api.serialise(language="raml",format="json")

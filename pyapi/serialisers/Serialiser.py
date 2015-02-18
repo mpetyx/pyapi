@@ -9,6 +9,11 @@ class Serialiser:
     resources = None
     graph = Graph()
     nest_resources = []
+    swagger_document = {}
+
+    def __init__(self):
+        self.swagger_document["swagger"] = '2.0'
+        self.swagger_document['paths'] = {}
 
 
     def raml_parse_resource(self, resource_name, resource):
@@ -85,6 +90,23 @@ class Serialiser:
                     self.graph.add((bNodeproperty, hydra.readonly, Literal(True)))
                     self.graph.add((operation, hydra.supportedProperties, bNodeproperty))
 
+    def swagger_parse_resource(self, resource_name, resource):
+
+        paths = {}
+
+        d = {resource_name: {'is': "[paged]", 'displayName': resource.displayName}}
+        for method in ['get', 'post', 'delete', 'put']:
+                if method in resource.methods:
+                    d[resource_name][method] = {'description': resource.methods[method].description}  # , 'type': self.resources[resource].methods[method].type}
+                    d[resource_name][method]['parameters'] = {}
+                    # for parameter in self.resources[resource].methods[method].queryParameters:
+                    #
+                    # param = self.resources[resource].methods[method].queryParameters[parameter]
+
+                    # d[resource][method]['queryParameters'][parameter] = param
+        paths.update(d)
+        self.swagger_document['paths'].update(paths)
+
 
     def nested_resources(self, resources, language, parentPath=""):
 
@@ -93,6 +115,8 @@ class Serialiser:
                 self.raml_parse_resource(parentPath + root_resource, resources[root_resource])
             elif language == "hydra":
                 self.hydra_parse_resource(parentPath + root_resource, resources[root_resource])
+            elif language=="swagger":
+                self.swagger_parse_resource(parentPath + root_resource, resources[root_resource])
 
             if resources[root_resource].resources:
                 self.nested_resources(resources[root_resource].resources, language=language,
