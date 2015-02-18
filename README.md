@@ -17,8 +17,18 @@ It provides parsers and serialisers for
 
 ## 3rd Party Libraries
 
-[Wadl to Swagger](https://github.com/rackerlabs/wadl2swagger)
-[Raml Parser](https://github.com/an2deg/pyraml-parser)
+- [Wadl to Swagger](https://github.com/rackerlabs/wadl2swagger)
+- [Raml Parser](https://github.com/an2deg/pyraml-parser)
+
+## Validation Services
+
+**Swagger Validation**
+-- [Flex](https://github.com/pipermerriam/flex)
+
+**Raml Validation** 
+-- [Raml Parser](https://github.com/an2deg/pyraml-parser)
+
+**Hydra Validation**
 
 
 

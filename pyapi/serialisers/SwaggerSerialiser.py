@@ -8,8 +8,6 @@ from Serialiser import Serialiser
 
 
 class SwaggerSerialiser(Serialiser):
-    resources = None
-
     def to_yaml(self, resources):
         self.resources = resources
         swagger_document = {}

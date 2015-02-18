@@ -1,0 +1,28 @@
+#%RAML 0.8
+title: Coffee Machine API
+version: 0.1
+baseUri: http://server/api/{version}
+
+/machine:
+  displayName: Coffee Machines
+  get:
+    description: Returns the list of all the connected machines on the hub
+  post:
+    description: Registers a new Coffee Machine on the hub
+
+  /{id}:
+    displayName: A Coffee Machine
+    get:
+      description: Return Status, Open/Close
+    post:
+      description: Changes the Status
+      queryParameters:
+        status:
+          default: close
+          example: open
+          required: true
+    delete:
+      description: Removes a Coffee Machine from the hub
+
+    /yolo:
+        get:

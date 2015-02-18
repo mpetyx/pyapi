@@ -1,16 +1,10 @@
 __author__ = 'mpetyx'
 
-import contextlib
-import urllib2
-import mimetypes
-import os.path
-import urlparse
 from collections import OrderedDict
 
 import json
 
 from Parser import Parser
-from pyapi.libraries import swaggerpy
 from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait, APIQueryParameter
 
 

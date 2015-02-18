@@ -1,8 +1,5 @@
 __author__ = 'mpetyx'
 
-from pyapi.libraries.pyraml_parser_master import pyraml
-from pyapi.libraries.pyraml_parser_master.pyraml import parser
-
 from serialisers.HydraSerialiser import HydraSerialiser
 from serialisers.RamlSerialiser import RamlSerialiser
 from serialisers.SwaggerSerialiser import SwaggerSerialiser
@@ -57,9 +54,9 @@ class API():
 
 api = API()
 # RAML TEST
-api.parse("petstore.json", language='swagger')
-# api.version = 2.0
+# api.parse("petstore.json", language='swagger')
+api.parse("coffeemachine.raml","raml")
 # print api.serialise(language="raml", format="yaml")
 #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
-print api.serialise(language="raml",format='json')
+print api.serialise(language="hydra",format="n3")
