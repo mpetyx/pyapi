@@ -53,8 +53,10 @@ class Serialiser:
 
         self.graph.add((demoref, RDF.type, OWL.Ontology))
 
-        link = URIRef(
-            urllib.quote_plus("http://www.deepgraphs.org/demo#" + str(resource_name)))
+        link = URIRef(#str("http://www.deepgraphs.org/demo#" + str(resource_name)).encode("utf-8"))
+            urllib.quote("http://www.deepgraphs.org/demo#" + str(resource_name), safe=':/#'))
+            # ("http://www.deepgraphs.org/demo#" + str(resource_name)).encode("utf-8s")
+
         self.graph.add((link, RDFS.label, Literal(resource_name)))
         self.graph.add((link, RDFS.isDefinedBy, demoref))
         self.graph.add((link, RDFS.range, hydra.Resource))
