@@ -1,12 +1,12 @@
 __author__ = 'mpetyx'
 
-from .serialisers import HydraSerialiser
-from .serialisers.RamlSerialiser import RamlSerialiser
-from .serialisers.SwaggerSerialiser import SwaggerSerialiser
+from parsers.RamlParser import RamlParser
+from parsers.HydraParser import HydraParser
+from parsers.SwaggerParser import SwaggerParser
 
-from .parsers.RamlParser import RamlParser
-from .parsers.HydraParser import HydraParser
-from .parsers.SwaggerParser import SwaggerParser
+from serialisers import HydraSerialiser
+from serialisers.RamlSerialiser import RamlSerialiser
+from serialisers.SwaggerSerialiser import SwaggerSerialiser
 
 
 class API():
