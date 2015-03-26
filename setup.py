@@ -9,4 +9,4 @@ setup(name="pyapi",
 	  maintainer="Michael Petychakis",
 	  maintainer_email="mpetyx@epu.ntua.gr",
       packages=['pyapi'],
-	  requires = ['rdflib','pyyaml','rdflib-jsonld'])
+	  requires = ['rdflib','pyyaml'])
