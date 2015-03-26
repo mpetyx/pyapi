@@ -1,0 +1,604 @@
+[
+    {
+        "@id": "_: Nbf1889e03501490185202f60f78e4084",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "user_retrieve"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "http: //www.deepgraphs.org/demo#http: //www.markus-lanthaler.com/hydra/api-demo/vocab#Issue",
+        "http: //www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "http: //www.markus-lanthaler.com/hydra/api-demo/vocab#Issue"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http: //www.w3.org/ns/hydra/core#Resource"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#supportedOperations": [
+            {
+                "@id": "_: Nbf67be39629043209fdc22fbf5007c60"
+            },
+            {
+                "@id": "_: Nbea6a5aca436469aad85265a58d561e8"
+            },
+            {
+                "@id": "_: N1832c7aece924bf49ce0af70aa0e76d3"
+            },
+            {
+                "@id": "_: N78700cc991e04d55b66e35df813aea74"
+            },
+            {
+                "@id": "_: Ne0505a9a70b44de189830237c6e0d60c"
+            },
+            {
+                "@id": "_: Nc141e252b80d4a659a74f301ff609bca"
+            }
+        ]
+    },
+    {
+        "@id": "_: N460695fda3274823abcfa7ddc927d46e",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "user_replace"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "PUT"
+            }
+        ]
+    },
+    {
+        "@id": "http: //www.deepgraphs.org/demo#http: //www.markus-lanthaler.com/hydra/api-demo/vocab#User",
+        "http: //www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "http: //www.markus-lanthaler.com/hydra/api-demo/vocab#User"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http: //www.w3.org/ns/hydra/core#Resource"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#supportedOperations": [
+            {
+                "@id": "_: N2759571cfe044f788ecdf5ddc24c1b09"
+            },
+            {
+                "@id": "_: N4baf0979653c436ea800407a1b8c52d9"
+            },
+            {
+                "@id": "_: N460695fda3274823abcfa7ddc927d46e"
+            },
+            {
+                "@id": "_: N62e92747ee2a471687d32bfe51c6bc56"
+            },
+            {
+                "@id": "_: Nbf1889e03501490185202f60f78e4084"
+            },
+            {
+                "@id": "_: Nae77468a1b554ba6ae033d1ef35d7920"
+            }
+        ]
+    },
+    {
+        "@id": "_: N02e23629176d4f84984387c58424854e",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "comment_retrieve"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "_: N18448366c26e4d3fb5aa15f7a9691588",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "entry_point"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "http: //www.deepgraphs.org/demo#http: //www.markus-lanthaler.com/hydra/api-demo/vocab#EntryPoint",
+        "http: //www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "http: //www.markus-lanthaler.com/hydra/api-demo/vocab#EntryPoint"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http: //www.w3.org/ns/hydra/core#Resource"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#supportedOperations": [
+            {
+                "@id": "_: N18448366c26e4d3fb5aa15f7a9691588"
+            },
+            {
+                "@id": "_: Nd8bd2a37b460469d8b3e989957b61e35"
+            }
+        ]
+    },
+    {
+        "@id": "_: Ne0505a9a70b44de189830237c6e0d60c",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "issue_delete"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "DELETE"
+            }
+        ]
+    },
+    {
+        "@id": "http: //www.deepgraphs.org/demo#http: //www.markus-lanthaler.com/hydra/api-demo/vocab#Comment",
+        "http: //www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "http: //www.markus-lanthaler.com/hydra/api-demo/vocab#Comment"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http: //www.w3.org/ns/hydra/core#Resource"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#supportedOperations": [
+            {
+                "@id": "_: N575905c742f9433bb35709d1a8843679"
+            },
+            {
+                "@id": "_: Ncfddc14043b046e29a0464a8168bcd7b"
+            },
+            {
+                "@id": "_: N02e23629176d4f84984387c58424854e"
+            },
+            {
+                "@id": "_: N6012612daa8940cea51200ccf1f19fd4"
+            },
+            {
+                "@id": "_: N656965713d9f48dba1a56281b1c7aacd"
+            },
+            {
+                "@id": "_: Nd069d279d8844411a0e2219dfdd47e46"
+            }
+        ]
+    },
+    {
+        "@id": "_: Nbf67be39629043209fdc22fbf5007c60",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "issue_delete"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "DELETE"
+            }
+        ]
+    },
+    {
+        "@id": "_: Nbea6a5aca436469aad85265a58d561e8",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "issue_retrieve"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "_: N78700cc991e04d55b66e35df813aea74",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "issue_retrieve"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "_: Ncfddc14043b046e29a0464a8168bcd7b",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "comment_replace"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "PUT"
+            }
+        ]
+    },
+    {
+        "@id": "_: Nae77468a1b554ba6ae033d1ef35d7920",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "user_retrieve"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "_: N2759571cfe044f788ecdf5ddc24c1b09",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "user_delete"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "DELETE"
+            }
+        ]
+    },
+    {
+        "@id": "_: N575905c742f9433bb35709d1a8843679",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "comment_delete"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "DELETE"
+            }
+        ]
+    },
+    {
+        "@id": "_: Nd8bd2a37b460469d8b3e989957b61e35",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "entry_point"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "_: N62e92747ee2a471687d32bfe51c6bc56",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "user_delete"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "DELETE"
+            }
+        ]
+    },
+    {
+        "@id": "_: N656965713d9f48dba1a56281b1c7aacd",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "comment_replace"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "PUT"
+            }
+        ]
+    },
+    {
+        "@id": "_: N1832c7aece924bf49ce0af70aa0e76d3",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "issue_replace"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "PUT"
+            }
+        ]
+    },
+    {
+        "@id": "http: //www.deepgraphs.org/demo#",
+        "@type": [
+            "http: //www.w3.org/2002/07/owl#Ontology"
+        ]
+    },
+    {
+        "@id": "http: //www.deepgraphs.org/demo#http: //www.w3.org/ns/hydra/core#Resource",
+        "http: //www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "http: //www.w3.org/ns/hydra/core#Resource"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http: //www.w3.org/ns/hydra/core#Resource"
+            }
+        ]
+    },
+    {
+        "@id": "_: Nc141e252b80d4a659a74f301ff609bca",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "issue_replace"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "PUT"
+            }
+        ]
+    },
+    {
+        "@id": "_: N4baf0979653c436ea800407a1b8c52d9",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "user_replace"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "PUT"
+            }
+        ]
+    },
+    {
+        "@id": "_: N6012612daa8940cea51200ccf1f19fd4",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "comment_retrieve"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "GET"
+            }
+        ]
+    },
+    {
+        "@id": "_: Nd069d279d8844411a0e2219dfdd47e46",
+        "@type": [
+            "http: //www.w3.org/ns/hydra/core#Operation"
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#comment": [
+            {
+                "@value": "comment_delete"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#expects": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#InputClass"
+            }
+        ],
+        "http: //www.w3.org/ns/hydra/core#method": [
+            {
+                "@value": "DELETE"
+            }
+        ]
+    },
+    {
+        "@id": "http: //www.deepgraphs.org/demo#http: //www.w3.org/ns/hydra/core#Collection",
+        "http: //www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+            {
+                "@id": "http: //www.deepgraphs.org/demo#"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#label": [
+            {
+                "@value": "http: //www.w3.org/ns/hydra/core#Collection"
+            }
+        ],
+        "http: //www.w3.org/2000/01/rdf-schema#range": [
+            {
+                "@id": "http: //www.w3.org/ns/hydra/core#Resource"
+            }
+        ]
+    }
+]

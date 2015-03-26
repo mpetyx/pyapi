@@ -6,23 +6,42 @@ import json
 
 from Parser import Parser
 from pyapi.entities import APIRoot, APIResource, APIMethod, APIBody, APIResourceType, APITrait, APIQueryParameter
+import requests
 
 
 class SwaggerParser(Parser):
+    api = APIRoot(raml_version=str(0.8))
+    
     def parse(self, location):
-        api = APIRoot(raml_version=str(0.8))
-        # api.g_version = g.g_version
+        # self.api.g_version = g.g_version
         # g = swaggerpy.load_file('test-data/1.1/simple/resources.json')
-        with open(location) as data_file:
-            data = json.load(data_file)
-        api.title = data['info']['title']
-        # api.title = g.title
-        # api.version = g.version
-        api.baseUri = data['host']+data['basePath']
-        api.protocols = data['schemes']
-        # api.mediaType = g.mediaType
-        # api.documentation = g.documentation
-        # api.resourceTypes = g.resourceTypes
+        if "http://" in location:
+            response  = requests.get(location).json()
+            # import pprint
+            # pprint.pprint(response)
+            data = response
+        else:
+            with open(location) as data_file:
+                data = json.load(data_file)
+        # self.api.title = data['info']['title']
+        # self.api.title = g.title
+        # self.api.version = g.version
+        if data['swaggerVersion'] == "1.1":
+            return self.version_11(data=data)
+        else:
+            return self.version_12(data=data)
+
+
+    def version_12(self, data):
+
+        # self.api.title = data['info']['title']
+        # self.api.title = g.title
+        # self.api.version = g.version
+        self.api.baseUri = data['host']+data['basePath']
+        self.api.protocols = data['schemes']
+        # self.api.mediaType = g.mediaType
+        # self.api.documentation = g.documentation
+        # self.api.resourceTypes = g.resourceTypes
 
         resources = OrderedDict()
         for path in data['paths']:
@@ -58,6 +77,56 @@ class SwaggerParser(Parser):
             resources[str(path)] = resource
 
         if resources > 0:
-            api.resources = resources
+            self.api.resources = resources
 
-        return api
+        return self.api
+        
+    def version_11(self, data):
+        
+        # self.api.title = data['info']['title']
+        # self.api.title = g.title
+        # self.api.version = g.version
+        self.api.baseUri = data['basePath']
+        # self.api.protocols = data['schemes']
+        # self.api.mediaType = g.mediaType
+        # self.api.documentation = g.documentation
+        # self.api.resourceTypes = g.resourceTypes
+
+        resources = OrderedDict()
+        for api in data['apis']:
+            path = api['path']
+            resource = APIResource()
+            resource.displayName = "yolo"
+            resource.description = "example of the api"
+            # Parse methods
+
+            methods = OrderedDict()
+
+            for operation in api['operations']:
+                method = APIMethod(notNull=True)
+                if "summary" in operation:
+                    method.description = operation['summary']
+                else:
+                    method.description = data['paths'][path][operation]['description']
+
+                if "parameters" in operation:
+                    parameters = OrderedDict()
+                    index = 0
+                    while index < len(operation['parameters']):
+                        param = APIQueryParameter()
+                        param.name = operation['parameters'][index]['name']
+                        index = index + 1
+                        parameters[param.name]=param
+                    method.queryParameters = parameters
+                methods[str(operation['httpMethod'])] = method
+
+
+            if len(methods):
+                resource.methods = methods
+
+            resources[str(path)] = resource
+
+        if resources > 0:
+            self.api.resources = resources
+
+        return self.api

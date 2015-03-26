@@ -1,12 +1,12 @@
 __author__ = 'mpetyx'
 
-from serialisers.HydraSerialiser import HydraSerialiser
-from serialisers.RamlSerialiser import RamlSerialiser
-from serialisers.SwaggerSerialiser import SwaggerSerialiser
+from pyapi.serialisers import HydraSerialiser
+from pyapi.serialisers.RamlSerialiser import RamlSerialiser
+from pyapi.serialisers.SwaggerSerialiser import SwaggerSerialiser
 
-from parsers.RamlParser import RamlParser
-from parsers.HydraParser import HydraParser
-from parsers.SwaggerParser import SwaggerParser
+from pyapi.parsers.RamlParser import RamlParser
+from pyapi.parsers.HydraParser import HydraParser
+from pyapi.parsers.SwaggerParser import SwaggerParser
 
 
 class API():
@@ -34,7 +34,7 @@ class API():
             g = RamlSerialiser()
             return g.to_yaml(self.resources)
         elif "hydra" in language.lower():
-            g = HydraSerialiser()
+            g = HydraSerialiser.HydraSerialiser()
             g.to_hydra(self.resources)
             if "json-ld" == format:
                 return g.to_jsonld()
@@ -51,11 +51,15 @@ class API():
             return "Not supported language yet."
 
 
-api = API()
-# RAML TEST
-# api.parse("petstore.json", language='swagger')
-api.parse("coffeemachine.raml","raml")
-# print api.serialise(language="raml", format="yaml")
-#
+# api = API()
+# # RAML TEST
+# # api.parse("petstore.json", language='swagger')
+# # api.parse("bookstore.raml","raml")
+# # print api.serialise(language="raml", format="yaml")
+# #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
-print api.serialise(language="raml",format="json")
+# # print api.serialise(language="hydra",format="json-ld")
+# import json
+#
+# with open('api-demo.json', 'w') as f:
+#   json.dump(api.serialise(language="hydra",format="json-ld"), f, sort_keys = True, indent = 4, ensure_ascii=False)

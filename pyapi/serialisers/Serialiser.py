@@ -24,25 +24,36 @@ class Serialiser:
             if (method.upper() in resource.methods) or (method in resource.methods):
                 if method.upper() in resource.methods:
                     method = method.upper()
-                d[resource_name][method] = {'description': resource.methods[
-                    method].description}  # , 'type': resource].methods[method].type}
-                d[resource_name][method]['queryParameters'] = {}
+                d[resource_name][method.lower()] = {'description': str(resource.methods[
+                    method].description)}  # , 'type': resource].methods[method].type}
+                d[resource_name][method.lower()]['queryParameters'] = {}
                 if not resource.methods[method].queryParameters:
                     continue
                 for parameter in resource.methods[method].queryParameters:
                     param = {}
-                    param['example'] = resource.methods[method].queryParameters[parameter].example
-                    param['pattern'] = resource.methods[method].queryParameters[parameter].pattern
-                    param['enum'] = resource.methods[method].queryParameters[parameter].enum
-                    param['displayName'] = resource.methods[method].queryParameters[parameter].displayName
-                    param['description'] = resource.methods[method].queryParameters[parameter].description
-                    param['default'] = resource.methods[method].queryParameters[parameter].default
-                    param['minLength'] = resource.methods[method].queryParameters[parameter].minLength
-                    param['type'] = resource.methods[method].queryParameters[parameter].type
-                    param['maxLength'] = resource.methods[method].queryParameters[parameter].maxLength
-                    param['required'] = resource.methods[method].queryParameters[parameter].required
-                    param['repeat'] = resource.methods[method].queryParameters[parameter].repeat
-                    d[resource_name][method]['queryParameters'][parameter] = param
+                    if resource.methods[method].queryParameters[parameter].example:
+                        param['example'] = resource.methods[method].queryParameters[parameter].example
+                    if resource.methods[method].queryParameters[parameter].pattern:
+                        param['pattern'] = resource.methods[method].queryParameters[parameter].pattern
+                    if resource.methods[method].queryParameters[parameter].enum:
+                        param['enum'] = resource.methods[method].queryParameters[parameter].enum
+                    if resource.methods[method].queryParameters[parameter].displayName:
+                        param['displayName'] = resource.methods[method].queryParameters[parameter].displayName
+                    if resource.methods[method].queryParameters[parameter].description:
+                        param['description'] = resource.methods[method].queryParameters[parameter].description
+                    if resource.methods[method].queryParameters[parameter].default:
+                        param['default'] = resource.methods[method].queryParameters[parameter].default
+                    if resource.methods[method].queryParameters[parameter].minLength:
+                        param['minLength'] = resource.methods[method].queryParameters[parameter].minLength
+                    if resource.methods[method].queryParameters[parameter].type:
+                        param['type'] = resource.methods[method].queryParameters[parameter].type
+                    if resource.methods[method].queryParameters[parameter].maxLength:
+                        param['maxLength'] = resource.methods[method].queryParameters[parameter].maxLength
+                    if resource.methods[method].queryParameters[parameter].required:
+                        param['required'] = resource.methods[method].queryParameters[parameter].required
+                    if resource.methods[method].queryParameters[parameter].repeat:
+                        param['repeat'] = resource.methods[method].queryParameters[parameter].repeat
+                    d[resource_name][method.lower()]['queryParameters'][str(parameter)] = param
 
         self.nest_resources.append(d)
 
@@ -66,7 +77,11 @@ class Serialiser:
         self.graph.add((link, RDFS.isDefinedBy, demoref))
         self.graph.add((link, RDFS.range, hydra.Resource))
         for method in ['get', 'post', 'delete', 'put']:
+            if not resource.methods:
+                continue
             if (method.upper() in resource.methods) or (method in resource.methods):
+                if method.upper() in resource.methods:
+                    method = method.upper()
                 operation = BNode()
                 self.graph.add((operation, RDF.type, hydra.Operation))
                 self.graph.add((operation, RDFS.comment, Literal(resource.methods[method].description)))
