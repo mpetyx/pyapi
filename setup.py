@@ -3,7 +3,7 @@ __author__ = 'mpetyx'
 from distutils.core import setup
 setup(name="pyapi",
       description="pyapi Libray",
-      version="1.3",
+      version="1.4",
       author="Michael Petychakis",
       author_email="mpetyx@epu.ntua.gr",
 	  maintainer="Michael Petychakis",
