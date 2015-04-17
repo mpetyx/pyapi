@@ -1,13 +1,21 @@
 __author__ = 'mpetyx'
 
-openi_server_url = "https://demo2.openi-ict.eu/v.04/"
-openi_server_url = "https://demo2.openi-ict.eu/api-spec/v1/api_framework"
-openi_server_url = "http://localhost:8000/api/doc/schema/Account/"
+openi_server_url = "http://imagine.epu.ntua.gr:1988//api/doc/resources/"
+schema = "http://imagine.epu.ntua.gr:1988/api/doc/schema"
+
+
 
 from pyapi import API
+import requests
+
+server = requests.get(openi_server_url)
+
+objects = server.json()['apis']
 
 api_framework = API()
 
-api_framework.parse(location=openi_server_url, language="swagger")
+for object in objects:
+    print openi_server_url+object['path']
+    api_framework.parse(location=schema+object['path'], language="swagger")
 
-print api_framework.serialise("raml")
+    print api_framework.serialise("raml")

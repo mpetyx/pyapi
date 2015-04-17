@@ -16,7 +16,7 @@ class SwaggerSerialiser(Serialiser):
 
     def to_yaml(self):
 
-        return yaml.dump(self.swagger_document, default_flow_style=False)
+        return yaml.dump(self.document, default_flow_style=False)
 
     def to_json(self):
 

@@ -7,6 +7,7 @@ from parsers.SwaggerParser import SwaggerParser
 from serialisers import HydraSerialiser
 from serialisers.RamlSerialiser import RamlSerialiser
 from serialisers.SwaggerSerialiser import SwaggerSerialiser
+from serialisers.APIBlueprintsSerialiser import APIBlueprintsSerialiser
 
 
 class API():
@@ -46,16 +47,19 @@ class API():
                 return g.to_json()
             else:
                 return g.to_yaml()
+        elif "blueprints" in language.lower():
+            g = APIBlueprintsSerialiser(self.resources)
+            return g.to_markdown()
         else:
 
             return "Not supported language yet."
 
 
-# api = API()
+api = API()
 # # RAML TEST
-# # api.parse("petstore.json", language='swagger')
-# # api.parse("bookstore.raml","raml")
-# # print api.serialise(language="raml", format="yaml")
+# api.parse("http://imagine.epu.ntua.gr:1988/api/doc/schema/Account/?api_key=special-key", language='swagger')
+# api.parse("coffeemachine.raml","raml")
+# print api.serialise(language="blueprints", format="n3")
 # #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
 # # print api.serialise(language="hydra",format="json-ld")

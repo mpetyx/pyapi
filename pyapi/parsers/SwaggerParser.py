@@ -26,19 +26,20 @@ class SwaggerParser(Parser):
         # self.api.title = data['info']['title']
         # self.api.title = g.title
         # self.api.version = g.version
-        if data['swaggerVersion'] == "1.1":
-            return self.version_11(data=data)
-        else:
-            return self.version_12(data=data)
-
+        # try:
+        #     # data['swaggerVersion'] == "1.1"
+        #     return self.version_11(data=data)
+        # except:
+        #     return self.version_12(data=data)
+        return self.version_11(data=data)
 
     def version_12(self, data):
 
         # self.api.title = data['info']['title']
         # self.api.title = g.title
         # self.api.version = g.version
-        self.api.baseUri = data['host']+data['basePath']
-        self.api.protocols = data['schemes']
+        self.api.baseUri = data['basePath']
+        # self.api.protocols = data['schemes']
         # self.api.mediaType = g.mediaType
         # self.api.documentation = g.documentation
         # self.api.resourceTypes = g.resourceTypes
@@ -46,7 +47,7 @@ class SwaggerParser(Parser):
         resources = OrderedDict()
         for path in data['paths']:
             resource = APIResource()
-            resource.displayName = "yolo"
+            resource.displayName = str(path)
             resource.description = "example of the api"
             # Parse methods
 
@@ -96,8 +97,8 @@ class SwaggerParser(Parser):
         for api in data['apis']:
             path = api['path']
             resource = APIResource()
-            resource.displayName = "yolo"
-            resource.description = "example of the api"
+            resource.displayName = str(path)
+            resource.description = str(api['description'])
             # Parse methods
 
             methods = OrderedDict()
@@ -118,7 +119,10 @@ class SwaggerParser(Parser):
                         index = index + 1
                         parameters[param.name]=param
                     method.queryParameters = parameters
-                methods[str(operation['httpMethod'])] = method
+                try:
+                    methods[str(operation['httpMethod'])] = method
+                except:
+                    methods[str(operation['method'])] = method
 
 
             if len(methods):
