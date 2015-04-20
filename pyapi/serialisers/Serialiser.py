@@ -10,7 +10,7 @@ class Serialiser:
     graph = Graph()
     nest_resources = []
     document = {}
-    blueprints = ""
+    blueprint = ""
 
     def __init__(self):
         self.document["swagger"] = '2.0'
@@ -121,7 +121,7 @@ class Serialiser:
         paths.update(d)
         self.document['paths'].update(paths)
 
-    def blueprints_parse_resource(self, resource_name, resource):
+    def blueprint_parse_resource(self, resource_name, resource):
 
         paths = {}
 
@@ -135,7 +135,7 @@ class Serialiser:
                 d[resource_name][method]['parameters'] = {}
                 output = output+"## %s\n%s\n\n"%(method.upper(),str(resource.methods[method].description))
 
-        self.blueprints = self.blueprints + output
+        self.blueprint = self.blueprint + output
         
 
 
@@ -146,8 +146,8 @@ class Serialiser:
                 self.raml_parse_resource(parentPath + root_resource, resources[root_resource])
             elif language == "hydra":
                 self.hydra_parse_resource(parentPath + root_resource, resources[root_resource])
-            elif language == "blueprints":
-                self.blueprints_parse_resource(parentPath + root_resource, resources[root_resource])
+            elif language == "blueprint":
+                self.blueprint_parse_resource(parentPath + root_resource, resources[root_resource])
             elif language=="swagger":
                 self.swagger_parse_resource(parentPath + root_resource, resources[root_resource])
 

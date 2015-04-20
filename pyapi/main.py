@@ -7,7 +7,7 @@ from parsers.SwaggerParser import SwaggerParser
 from serialisers import HydraSerialiser
 from serialisers.RamlSerialiser import RamlSerialiser
 from serialisers.SwaggerSerialiser import SwaggerSerialiser
-from serialisers.APIBlueprintsSerialiser import APIBlueprintsSerialiser
+from serialisers.APIBlueprintSerialiser import APIblueprintSerialiser
 
 
 class API():
@@ -47,8 +47,8 @@ class API():
                 return g.to_json()
             else:
                 return g.to_yaml()
-        elif "blueprints" in language.lower():
-            g = APIBlueprintsSerialiser(self.resources)
+        elif "blueprint" in language.lower():
+            g = APIblueprintSerialiser(self.resources)
             return g.to_markdown()
         else:
 
@@ -58,8 +58,8 @@ class API():
 api = API()
 # # RAML TEST
 # api.parse("http://imagine.epu.ntua.gr:1988/api/doc/schema/Account/?api_key=special-key", language='swagger')
-# api.parse("coffeemachine.raml","raml")
-# print api.serialise(language="blueprints", format="n3")
+api.parse("coffeemachine.raml","raml")
+print api.serialise(language="blueprint", format="n3")
 # #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
 # # print api.serialise(language="hydra",format="json-ld")

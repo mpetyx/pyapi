@@ -6,13 +6,13 @@ from Serialiser import Serialiser
 import yaml
 
 
-class APIBlueprintsSerialiser(Serialiser):
+class APIblueprintSerialiser(Serialiser):
 
     def __init__(self, resources):
         Serialiser.__init__(self)
-        self.nested_resources(resources=resources,language="blueprints")
+        self.nested_resources(resources=resources,language="blueprint")
 
 
     def to_markdown(self):
 
-        return self.blueprints
+        return self.blueprint

@@ -13,7 +13,7 @@ from htmlentitydefs import name2codepoint
 
 
 
-class APIBlueprintsParser(Parser):
+class APIblueprintParser(Parser):
     def parse(self, location):
 
 
@@ -178,7 +178,7 @@ OK, let's add another action. This time to put new data to our resource (essenti
 + Response 204
 """
 
-# api = APIBlueprintsParser(example)
+# api = APIblueprintParser(example)
 html = markdown.markdown(example2)
 md = markdown.Markdown()
 md.convert(example2)

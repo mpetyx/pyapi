@@ -23,9 +23,9 @@ class TestpyAPI(TestCase):
     def test_hydra_serialise(self):
         self.assertEqual(self.api.serialise(language="hydra"), {}, "Hydra could not be serialised properly")
 
-    def test_blueprints_serialise(self):
-        self.assertEqual(self.api.serialise(language="blueprints"), {},
-                         "API Blueprints could not be serialised properly")
+    def test_blueprint_serialise(self):
+        self.assertEqual(self.api.serialise(language="blueprint"), {},
+                         "API blueprint could not be serialised properly")
 
     def test_query(self):
         print "sample"
