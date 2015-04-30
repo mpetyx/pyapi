@@ -1,568 +1,568 @@
 [
-    {
-        "@id": "_:Nb6cc2782a98f4b69800d8684819e4a2e",
-        "http://www.w3.org/ns/hydra/core#property": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#id"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#readonly": [
-            {
-                "@value": true
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#keywords",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#link"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "The search terms. It can be a combination of words and/or terms."
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "Search Terms"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#product",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#link"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "It has to be a url to a product."
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "None"
-            }
-        ]
-    },
-    {
-        "@id": "_:Na60ab6398c36410786ecdd4ce01e891c",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "None"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "GET"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedProperties": [
-            {
-                "@id": "_:Nd95dc98c3066482a97bb8d6c7e1de629"
-            }
-        ]
-    },
-    {
-        "@id": "_:Ned0612807d41439e9e4d7fdd07033276",
-        "http://www.w3.org/ns/hydra/core#property": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#keywords"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#readonly": [
-            {
-                "@value": true
-            }
-        ]
-    },
-    {
-        "@id": "_:Na9c0f2dc7c244b55bd0113eb683c5e91",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "The add to basket capability."
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "POST"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedProperties": [
-            {
-                "@id": "_:Ncd7f2b7324bd470e9c7aeef964fdc96b"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#/receipt",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "/receipt"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-            {
-                "@id": "http://www.w3.org/ns/hydra/core#Resource"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedOperations": [
-            {
-                "@id": "_:N097263d63ede4a3dbd3b5ee5720d1f63"
-            },
-            {
-                "@id": "_:N355a7efe1c9c4844adf5b2fbf835063e"
-            }
-        ]
-    },
-    {
-        "@id": "_:N330abc6241f9456ea9c9337229235323",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "Retrieve details for the specific product"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "GET"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedProperties": [
-            {
-                "@id": "_:Nb6cc2782a98f4b69800d8684819e4a2e"
-            }
-        ]
-    },
-    {
-        "@id": "_:Nf762ac52d64a45e2b3bb4901e7abc188",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "Retrieve the content of the basket."
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "GET"
-            }
-        ]
-    },
-    {
-        "@id": "_:N8742af8077c54e018511e82fc20b9d3d",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "This is the main search function"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "GET"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedProperties": [
-            {
-                "@id": "_:Ned0612807d41439e9e4d7fdd07033276"
-            }
-        ]
-    },
-    {
-        "@id": "_:N097263d63ede4a3dbd3b5ee5720d1f63",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "Create the receipt for the payment."
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "POST"
-            }
-        ]
-    },
-    {
-        "@id": "_:Nd95dc98c3066482a97bb8d6c7e1de629",
-        "http://www.w3.org/ns/hydra/core#property": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#id"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#readonly": [
-            {
-                "@value": true
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#/error",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "/error"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-            {
-                "@id": "http://www.w3.org/ns/hydra/core#Resource"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedOperations": [
-            {
-                "@id": "_:Na60ab6398c36410786ecdd4ce01e891c"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#/search",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "/search"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-            {
-                "@id": "http://www.w3.org/ns/hydra/core#Resource"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedOperations": [
-            {
-                "@id": "_:N8742af8077c54e018511e82fc20b9d3d"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#/entry",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "/entry"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-            {
-                "@id": "http://www.w3.org/ns/hydra/core#Resource"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedOperations": [
-            {
-                "@id": "_:N91f51c83125a47b991abb04ba438555b"
-            }
-        ]
-    },
-    {
-        "@id": "_:Neac22893263445638484960fce47e9ae",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "Delete an item from the basket."
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "DELETE"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedProperties": [
-            {
-                "@id": "_:Nbb681a5355d74dc58aa44e91db48b55f"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#/product",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "/product"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-            {
-                "@id": "http://www.w3.org/ns/hydra/core#Resource"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedOperations": [
-            {
-                "@id": "_:N330abc6241f9456ea9c9337229235323"
-            }
-        ]
-    },
-    {
-        "@id": "_:Nbb681a5355d74dc58aa44e91db48b55f",
-        "http://www.w3.org/ns/hydra/core#property": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#product"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#readonly": [
-            {
-                "@value": true
-            }
-        ]
-    },
-    {
-        "@id": "_:Ncd2364de02bc402c9b31cda30175e3eb",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "It has no parameters since it takes by default the user basket to checkout"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "POST"
-            }
-        ]
-    },
-    {
-        "@id": "_:N967a6d349a9946bf9f7b078f6259035e",
-        "http://www.w3.org/ns/hydra/core#property": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#id"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#readonly": [
-            {
-                "@value": true
-            }
-        ]
-    },
-    {
-        "@id": "_:N355a7efe1c9c4844adf5b2fbf835063e",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "Retrieve a receipt for a specific payment with that id"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "GET"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedProperties": [
-            {
-                "@id": "_:N967a6d349a9946bf9f7b078f6259035e"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#",
-        "@type": [
-            "http://www.w3.org/2002/07/owl#Ontology"
-        ]
-    },
-    {
-        "@id": "_:N91f51c83125a47b991abb04ba438555b",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#Operation"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "You get the overall document of all the related paths"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#expects": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#InputClass"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#method": [
-            {
-                "@value": "GET"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#/payment",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "/payment"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-            {
-                "@id": "http://www.w3.org/ns/hydra/core#Resource"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedOperations": [
-            {
-                "@id": "_:Ncd2364de02bc402c9b31cda30175e3eb"
-            }
-        ]
-    },
-    {
-        "@id": "_:Ncd7f2b7324bd470e9c7aeef964fdc96b",
-        "http://www.w3.org/ns/hydra/core#property": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#product"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#readonly": [
-            {
-                "@value": true
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#/basket",
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "/basket"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-            {
-                "@id": "http://www.w3.org/ns/hydra/core#Resource"
-            }
-        ],
-        "http://www.w3.org/ns/hydra/core#supportedOperations": [
-            {
-                "@id": "_:Nf762ac52d64a45e2b3bb4901e7abc188"
-            },
-            {
-                "@id": "_:Neac22893263445638484960fce47e9ae"
-            },
-            {
-                "@id": "_:Na9c0f2dc7c244b55bd0113eb683c5e91"
-            }
-        ]
-    },
-    {
-        "@id": "http://www.deepgraphs.org/demo#id",
-        "@type": [
-            "http://www.w3.org/ns/hydra/core#link"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#comment": [
-            {
-                "@value": "None"
-            },
-            {
-                "@value": "The id of the project."
-            },
-            {
-                "@value": "Provide a valid payment id(or url)"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-            {
-                "@id": "http://www.deepgraphs.org/demo#"
-            }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-            {
-                "@value": "id"
-            },
-            {
-                "@value": "None"
-            }
-        ]
-    }
+  {
+    "@id": "_:Nb6cc2782a98f4b69800d8684819e4a2e",
+    "http://www.w3.org/ns/hydra/core#property": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#id"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#readonly": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#keywords",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#link"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "The search terms. It can be a combination of words and/or terms."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Search Terms"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#product",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#link"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "It has to be a url to a product."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "None"
+      }
+    ]
+  },
+  {
+    "@id": "_:Na60ab6398c36410786ecdd4ce01e891c",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "None"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "GET"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedProperties": [
+      {
+        "@id": "_:Nd95dc98c3066482a97bb8d6c7e1de629"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ned0612807d41439e9e4d7fdd07033276",
+    "http://www.w3.org/ns/hydra/core#property": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#keywords"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#readonly": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "_:Na9c0f2dc7c244b55bd0113eb683c5e91",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "The add to basket capability."
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "POST"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedProperties": [
+      {
+        "@id": "_:Ncd7f2b7324bd470e9c7aeef964fdc96b"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#/receipt",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "/receipt"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/hydra/core#Resource"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedOperations": [
+      {
+        "@id": "_:N097263d63ede4a3dbd3b5ee5720d1f63"
+      },
+      {
+        "@id": "_:N355a7efe1c9c4844adf5b2fbf835063e"
+      }
+    ]
+  },
+  {
+    "@id": "_:N330abc6241f9456ea9c9337229235323",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Retrieve details for the specific product"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "GET"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedProperties": [
+      {
+        "@id": "_:Nb6cc2782a98f4b69800d8684819e4a2e"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf762ac52d64a45e2b3bb4901e7abc188",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Retrieve the content of the basket."
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "GET"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8742af8077c54e018511e82fc20b9d3d",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "This is the main search function"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "GET"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedProperties": [
+      {
+        "@id": "_:Ned0612807d41439e9e4d7fdd07033276"
+      }
+    ]
+  },
+  {
+    "@id": "_:N097263d63ede4a3dbd3b5ee5720d1f63",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Create the receipt for the payment."
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "POST"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd95dc98c3066482a97bb8d6c7e1de629",
+    "http://www.w3.org/ns/hydra/core#property": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#id"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#readonly": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#/error",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "/error"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/hydra/core#Resource"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedOperations": [
+      {
+        "@id": "_:Na60ab6398c36410786ecdd4ce01e891c"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#/search",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "/search"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/hydra/core#Resource"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedOperations": [
+      {
+        "@id": "_:N8742af8077c54e018511e82fc20b9d3d"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#/entry",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "/entry"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/hydra/core#Resource"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedOperations": [
+      {
+        "@id": "_:N91f51c83125a47b991abb04ba438555b"
+      }
+    ]
+  },
+  {
+    "@id": "_:Neac22893263445638484960fce47e9ae",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Delete an item from the basket."
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "DELETE"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedProperties": [
+      {
+        "@id": "_:Nbb681a5355d74dc58aa44e91db48b55f"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#/product",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "/product"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/hydra/core#Resource"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedOperations": [
+      {
+        "@id": "_:N330abc6241f9456ea9c9337229235323"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nbb681a5355d74dc58aa44e91db48b55f",
+    "http://www.w3.org/ns/hydra/core#property": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#product"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#readonly": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncd2364de02bc402c9b31cda30175e3eb",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "It has no parameters since it takes by default the user basket to checkout"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "POST"
+      }
+    ]
+  },
+  {
+    "@id": "_:N967a6d349a9946bf9f7b078f6259035e",
+    "http://www.w3.org/ns/hydra/core#property": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#id"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#readonly": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "_:N355a7efe1c9c4844adf5b2fbf835063e",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Retrieve a receipt for a specific payment with that id"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "GET"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedProperties": [
+      {
+        "@id": "_:N967a6d349a9946bf9f7b078f6259035e"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ]
+  },
+  {
+    "@id": "_:N91f51c83125a47b991abb04ba438555b",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#Operation"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "You get the overall document of all the related paths"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#expects": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#InputClass"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#method": [
+      {
+        "@value": "GET"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#/payment",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "/payment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/hydra/core#Resource"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedOperations": [
+      {
+        "@id": "_:Ncd2364de02bc402c9b31cda30175e3eb"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncd7f2b7324bd470e9c7aeef964fdc96b",
+    "http://www.w3.org/ns/hydra/core#property": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#product"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#readonly": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#/basket",
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "/basket"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/hydra/core#Resource"
+      }
+    ],
+    "http://www.w3.org/ns/hydra/core#supportedOperations": [
+      {
+        "@id": "_:Nf762ac52d64a45e2b3bb4901e7abc188"
+      },
+      {
+        "@id": "_:Neac22893263445638484960fce47e9ae"
+      },
+      {
+        "@id": "_:Na9c0f2dc7c244b55bd0113eb683c5e91"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.deepgraphs.org/demo#id",
+    "@type": [
+      "http://www.w3.org/ns/hydra/core#link"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "None"
+      },
+      {
+        "@value": "The id of the project."
+      },
+      {
+        "@value": "Provide a valid payment id(or url)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.deepgraphs.org/demo#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "id"
+      },
+      {
+        "@value": "None"
+      }
+    ]
+  }
 ]

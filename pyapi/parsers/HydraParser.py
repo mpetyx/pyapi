@@ -16,7 +16,7 @@ class HydraParser(Parser):
         # if hm.open(location):
         # print hm.doc.apidoc
         # for klassi in hm.doc.classes:
-        #         print "######################"
+        # print "######################"
         #         print hm.doc.classes[klassi].dump()
         # for operation in  hm.doc.classes[klassi].operations:
         #     print

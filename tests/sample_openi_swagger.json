@@ -1,319 +1,319 @@
 {
-  "swaggerVersion" : "1.1",
-  "models" : {
-    "Objects" : {
-      "id" : "Objects",
-      "properties" : {
-        "Account" : {
-          "items" : {
-            "$ref" : "Account"
+  "swaggerVersion": "1.1",
+  "models": {
+    "Objects": {
+      "id": "Objects",
+      "properties": {
+        "Account": {
+          "items": {
+            "$ref": "Account"
           },
-          "type" : "List",
-          "description" : ""
+          "type": "List",
+          "description": ""
         }
       }
     },
-    "Account_put" : {
-      "id" : "Account_put",
-      "properties" : {
-        "Person" : {
-          "type" : "related",
-          "description" : "A single related resource. Can be either a URI or set of nested resource data."
+    "Account_put": {
+      "id": "Account_put",
+      "properties": {
+        "Person": {
+          "type": "related",
+          "description": "A single related resource. Can be either a URI or set of nested resource data."
         },
-        "active" : {
-          "type" : "boolean",
-          "description" : "Boolean data. Ex: True"
+        "active": {
+          "type": "boolean",
+          "description": "Boolean data. Ex: True"
         },
-        "cbsid" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "cbsid": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "context" : {
-          "type" : "related",
-          "description" : "A single related resource. Can be either a URI or set of nested resource data."
+        "context": {
+          "type": "related",
+          "description": "A single related resource. Can be either a URI or set of nested resource data."
         },
-        "username" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "username": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "email" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "email": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "validated" : {
-          "type" : "boolean",
-          "description" : "Boolean data. Ex: True"
+        "validated": {
+          "type": "boolean",
+          "description": "Boolean data. Ex: True"
         }
       }
     },
-    "ListView" : {
-      "id" : "ListView",
-      "properties" : {
-        "meta" : {
-          "type" : "Meta",
-          "description" : ""
+    "ListView": {
+      "id": "ListView",
+      "properties": {
+        "meta": {
+          "type": "Meta",
+          "description": ""
         },
-        "objects" : {
-          "type" : "Objects",
-          "description" : ""
+        "objects": {
+          "type": "Objects",
+          "description": ""
         }
       }
     },
-    "Account" : {
-      "id" : "Account",
-      "properties" : {
-        "active" : {
-          "type" : "boolean",
-          "description" : "Boolean data. Ex: True"
+    "Account": {
+      "id": "Account",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "description": "Boolean data. Ex: True"
         },
-        "resource_uri" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "resource_uri": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "context" : {
-          "type" : "related",
-          "description" : "A single related resource. Can be either a URI or set of nested resource data."
+        "context": {
+          "type": "related",
+          "description": "A single related resource. Can be either a URI or set of nested resource data."
         },
-        "url" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "url": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "Person" : {
-          "type" : "related",
-          "description" : "A single related resource. Can be either a URI or set of nested resource data."
+        "Person": {
+          "type": "related",
+          "description": "A single related resource. Can be either a URI or set of nested resource data."
         },
-        "validated" : {
-          "type" : "boolean",
-          "description" : "Boolean data. Ex: True"
+        "validated": {
+          "type": "boolean",
+          "description": "Boolean data. Ex: True"
         },
-        "object_type" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "object_type": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "From" : {
-          "type" : "related",
-          "description" : "A single related resource. Can be either a URI or set of nested resource data."
+        "From": {
+          "type": "related",
+          "description": "A single related resource. Can be either a URI or set of nested resource data."
         },
-        "service" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "service": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "username" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "username": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "email" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "email": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "cbsid" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "cbsid": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         }
       }
     },
-    "Account_post" : {
-      "id" : "Account_post",
-      "properties" : {
-        "Person" : {
-          "type" : "related",
-          "description" : "A single related resource. Can be either a URI or set of nested resource data."
+    "Account_post": {
+      "id": "Account_post",
+      "properties": {
+        "Person": {
+          "type": "related",
+          "description": "A single related resource. Can be either a URI or set of nested resource data."
         },
-        "active" : {
-          "type" : "boolean",
-          "description" : "Boolean data. Ex: True"
+        "active": {
+          "type": "boolean",
+          "description": "Boolean data. Ex: True"
         },
-        "cbsid" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "cbsid": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "context" : {
-          "type" : "related",
-          "description" : "A single related resource. Can be either a URI or set of nested resource data."
+        "context": {
+          "type": "related",
+          "description": "A single related resource. Can be either a URI or set of nested resource data."
         },
-        "username" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "username": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "email" : {
-          "type" : "string",
-          "description" : "Unicode string data. Ex: \"Hello World\""
+        "email": {
+          "type": "string",
+          "description": "Unicode string data. Ex: \"Hello World\""
         },
-        "validated" : {
-          "type" : "boolean",
-          "description" : "Boolean data. Ex: True"
+        "validated": {
+          "type": "boolean",
+          "description": "Boolean data. Ex: True"
         }
       }
     },
-    "Meta" : {
-      "id" : "Meta",
-      "properties" : {
-        "previous" : {
-          "type" : "string",
-          "description" : "Uri of the previous page relative to the current page settings."
+    "Meta": {
+      "id": "Meta",
+      "properties": {
+        "previous": {
+          "type": "string",
+          "description": "Uri of the previous page relative to the current page settings."
         },
-        "total_count" : {
-          "type" : "int",
-          "description" : "Total items count for the all collection"
+        "total_count": {
+          "type": "int",
+          "description": "Total items count for the all collection"
         },
-        "offset" : {
-          "type" : "int",
-          "description" : "Specify the offset to start displaying element on a page."
+        "offset": {
+          "type": "int",
+          "description": "Specify the offset to start displaying element on a page."
         },
-        "next" : {
-          "type" : "string",
-          "description" : "Uri of the next page relative to the current page settings."
+        "next": {
+          "type": "string",
+          "description": "Uri of the next page relative to the current page settings."
         },
-        "limit" : {
-          "type" : "int",
-          "description" : "Specify the number of element to display per page."
+        "limit": {
+          "type": "int",
+          "description": "Specify the number of element to display per page."
         }
       }
     }
   },
-  "resource" : "Account",
-  "apis" : [
+  "resource": "Account",
+  "apis": [
     {
-      "path" : "\/v.04\/Account\/",
-      "operations" : [
+      "path": "\/v.04\/Account\/",
+      "operations": [
         {
-          "summary" : "Retrieve a list of openi accounts",
-          "nickname" : "Account_list",
-          "responseClass" : "ListView",
-          "notes" : null,
-          "httpMethod" : "GET",
-          "parameters" : [
+          "summary": "Retrieve a list of openi accounts",
+          "nickname": "Account_list",
+          "responseClass": "ListView",
+          "notes": null,
+          "httpMethod": "GET",
+          "parameters": [
             {
-              "paramType" : "query",
-              "description" : "Specify the number of element to display per page.",
-              "dataType" : "int",
-              "required" : false,
-              "name" : "limit"
+              "paramType": "query",
+              "description": "Specify the number of element to display per page.",
+              "dataType": "int",
+              "required": false,
+              "name": "limit"
             },
             {
-              "paramType" : "query",
-              "description" : "Specify the offset to start displaying element on a page.",
-              "dataType" : "int",
-              "required" : false,
-              "name" : "offset"
+              "paramType": "query",
+              "description": "Specify the offset to start displaying element on a page.",
+              "dataType": "int",
+              "required": false,
+              "name": "offset"
             },
             {
-              "paramType" : "query",
-              "description" : "Facebook, Foursquare, Google",
-              "dataType" : "string",
-              "required" : false,
-              "name" : "cbs"
+              "paramType": "query",
+              "description": "Facebook, Foursquare, Google",
+              "dataType": "string",
+              "required": false,
+              "name": "cbs"
             },
             {
-              "paramType" : "query",
-              "description" : "Current user",
-              "dataType" : "string",
-              "required" : false,
-              "name" : "user"
+              "paramType": "query",
+              "description": "Current user",
+              "dataType": "string",
+              "required": false,
+              "name": "user"
             }
           ]
         },
         {
-          "summary" : "Create a new openi account",
-          "nickname" : "Account_list",
-          "responseClass" : "Account",
-          "notes" : null,
-          "httpMethod" : "POST",
-          "parameters" : [
+          "summary": "Create a new openi account",
+          "nickname": "Account_list",
+          "responseClass": "Account",
+          "notes": null,
+          "httpMethod": "POST",
+          "parameters": [
             {
-              "paramType" : "body",
-              "description" : "",
-              "dataType" : "Account_post",
-              "required" : true,
-              "name" : "Account"
+              "paramType": "body",
+              "description": "",
+              "dataType": "Account_post",
+              "required": true,
+              "name": "Account"
             }
           ]
         }
       ]
     },
     {
-      "path" : "\/v.04\/Account\/{id}\/",
-      "operations" : [
+      "path": "\/v.04\/Account\/{id}\/",
+      "operations": [
         {
-          "summary" : "Retrieve a single openi account by ID",
-          "nickname" : "Account_detail",
-          "responseClass" : "Account",
-          "notes" : null,
-          "httpMethod" : "GET",
-          "parameters" : [
+          "summary": "Retrieve a single openi account by ID",
+          "nickname": "Account_detail",
+          "responseClass": "Account",
+          "notes": null,
+          "httpMethod": "GET",
+          "parameters": [
             {
-              "paramType" : "path",
-              "description" : "Primary key of resource",
-              "dataType" : "undefined",
-              "required" : true,
-              "name" : "id"
+              "paramType": "path",
+              "description": "Primary key of resource",
+              "dataType": "undefined",
+              "required": true,
+              "name": "id"
             },
             {
-              "paramType" : "query",
-              "description" : "Facebook, Foursquare, Google",
-              "dataType" : "string",
-              "required" : false,
-              "name" : "cbs"
+              "paramType": "query",
+              "description": "Facebook, Foursquare, Google",
+              "dataType": "string",
+              "required": false,
+              "name": "cbs"
             },
             {
-              "paramType" : "query",
-              "description" : "Current user",
-              "dataType" : "string",
-              "required" : false,
-              "name" : "user"
+              "paramType": "query",
+              "description": "Current user",
+              "dataType": "string",
+              "required": false,
+              "name": "user"
             }
           ]
         },
         {
-          "summary" : "Update an existing openi account",
-          "nickname" : "Account_detail",
-          "responseClass" : "Account",
-          "notes" : null,
-          "httpMethod" : "PUT",
-          "parameters" : [
+          "summary": "Update an existing openi account",
+          "nickname": "Account_detail",
+          "responseClass": "Account",
+          "notes": null,
+          "httpMethod": "PUT",
+          "parameters": [
             {
-              "paramType" : "body",
-              "description" : "",
-              "dataType" : "Account_put",
-              "required" : true,
-              "name" : "Account"
+              "paramType": "body",
+              "description": "",
+              "dataType": "Account_put",
+              "required": true,
+              "name": "Account"
             }
           ]
         },
         {
-          "summary" : "Delete an existing openi account",
-          "nickname" : "Account_detail",
-          "responseClass" : "Account",
-          "notes" : null,
-          "httpMethod" : "DELETE",
-          "parameters" : [
+          "summary": "Delete an existing openi account",
+          "nickname": "Account_detail",
+          "responseClass": "Account",
+          "notes": null,
+          "httpMethod": "DELETE",
+          "parameters": [
             {
-              "paramType" : "path",
-              "description" : "Primary key of resource",
-              "dataType" : "undefined",
-              "required" : true,
-              "name" : "id"
+              "paramType": "path",
+              "description": "Primary key of resource",
+              "dataType": "undefined",
+              "required": true,
+              "name": "id"
             },
             {
-              "paramType" : "query",
-              "description" : "Facebook, Foursquare, Google",
-              "dataType" : "string",
-              "required" : false,
-              "name" : "cbs"
+              "paramType": "query",
+              "description": "Facebook, Foursquare, Google",
+              "dataType": "string",
+              "required": false,
+              "name": "cbs"
             },
             {
-              "paramType" : "query",
-              "description" : "Current user",
-              "dataType" : "string",
-              "required" : false,
-              "name" : "user"
+              "paramType": "query",
+              "description": "Current user",
+              "dataType": "string",
+              "required": false,
+              "name": "user"
             }
           ]
         }
       ]
     }
   ],
-  "namespace" : "openi_tastypie_swagger",
-  "basePath" : "\/",
-  "apiVersion" : "Unknown"
+  "namespace": "openi_tastypie_swagger",
+  "basePath": "\/",
+  "apiVersion": "Unknown"
 }

@@ -1,14 +1,16 @@
 __author__ = 'mpetyx'
 
 import os
-from pyapi import API
 import unittest
+
+from pyapi import API
+
+
 fixtures_dir = os.path.join(os.path.dirname(__file__), '../samples/v2.0/json')
 
+
 class TestPestoreResources(unittest.TestCase):
-
     def setUp(self):
-
         self.api = API()
 
     def test_parse_petstore(self):
@@ -25,7 +27,7 @@ class TestPestoreResources(unittest.TestCase):
 
 
     def tearDown(self):
-        assert 1==1
+        assert 1 == 1
 
 
 if __name__ == '__main__':

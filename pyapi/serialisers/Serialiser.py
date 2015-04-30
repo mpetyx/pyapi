@@ -1,9 +1,11 @@
 __author__ = 'mpetyx'
 
+import urllib
+
 from rdflib import Namespace, Literal
 from rdflib.namespace import RDF, RDFS, OWL
 from rdflib import Graph, BNode, URIRef
-import urllib
+
 
 class Serialiser:
     resources = None
@@ -26,7 +28,7 @@ class Serialiser:
                 if method.upper() in resource.methods:
                     method = method.upper()
                 d[resource_name][method.lower()] = {'description': str(resource.methods[
-                    method].description)}  # , 'type': resource].methods[method].type}
+                                                                           method].description)}  # , 'type': resource].methods[method].type}
                 d[resource_name][method.lower()]['queryParameters'] = {}
                 if not resource.methods[method].queryParameters:
                     continue
@@ -70,9 +72,9 @@ class Serialiser:
 
         self.graph.add((demoref, RDF.type, OWL.Ontology))
 
-        link = URIRef(#str("http://www.deepgraphs.org/demo#" + str(resource_name)).encode("utf-8"))
-            urllib.quote("http://www.deepgraphs.org/demo#" + str(resource_name), safe=':/#'))
-            # ("http://www.deepgraphs.org/demo#" + str(resource_name)).encode("utf-8s")
+        link = URIRef(  # str("http://www.deepgraphs.org/demo#" + str(resource_name)).encode("utf-8"))
+                        urllib.quote("http://www.deepgraphs.org/demo#" + str(resource_name), safe=':/#'))
+        # ("http://www.deepgraphs.org/demo#" + str(resource_name)).encode("utf-8s")
 
         self.graph.add((link, RDFS.label, Literal(resource_name)))
         self.graph.add((link, RDFS.isDefinedBy, demoref))
@@ -115,7 +117,8 @@ class Serialiser:
             if (method.upper() in resource.methods) or (method in resource.methods):
                 if method.upper() in resource.methods:
                     method = method.upper()
-                d[resource_name][method] = {'description': str(resource.methods[method].description)}  # , 'type': self.resources[resource].methods[method].type}
+                d[resource_name][method] = {'description': str(
+                    resource.methods[method].description)}  # , 'type': self.resources[resource].methods[method].type}
                 d[resource_name][method]['parameters'] = {}
 
         paths.update(d)
@@ -126,17 +129,17 @@ class Serialiser:
         paths = {}
 
         d = {resource_name: {'is': "[paged]", 'displayName': resource.displayName}}
-        output = "# %s \n%s \n\n%s\n\n"%(resource_name,resource.displayName,resource.description)
+        output = "# %s \n%s \n\n%s\n\n" % (resource_name, resource.displayName, resource.description)
         for method in ['get', 'post', 'delete', 'put']:
             if (method.upper() in resource.methods) or (method in resource.methods):
                 if method.upper() in resource.methods:
                     method = method.upper()
-                d[resource_name][method] = {'description': str(resource.methods[method].description)}  # , 'type': self.resources[resource].methods[method].type}
+                d[resource_name][method] = {'description': str(
+                    resource.methods[method].description)}  # , 'type': self.resources[resource].methods[method].type}
                 d[resource_name][method]['parameters'] = {}
-                output = output+"## %s\n%s\n\n"%(method.upper(),str(resource.methods[method].description))
+                output = output + "## %s\n%s\n\n" % (method.upper(), str(resource.methods[method].description))
 
         self.blueprint = self.blueprint + output
-        
 
 
     def nested_resources(self, resources, language, parentPath=""):
@@ -148,7 +151,7 @@ class Serialiser:
                 self.hydra_parse_resource(parentPath + root_resource, resources[root_resource])
             elif language == "blueprint":
                 self.blueprint_parse_resource(parentPath + root_resource, resources[root_resource])
-            elif language=="swagger":
+            elif language == "swagger":
                 self.swagger_parse_resource(parentPath + root_resource, resources[root_resource])
 
             if resources[root_resource].resources:

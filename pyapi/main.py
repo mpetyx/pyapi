@@ -58,7 +58,7 @@ class API():
 api = API()
 # # RAML TEST
 # api.parse("http://imagine.epu.ntua.gr:1988/api/doc/schema/Account/?api_key=special-key", language='swagger')
-api.parse("coffeemachine.raml","raml")
+api.parse("coffeemachine.raml", "raml")
 print api.serialise(language="blueprint", format="n3")
 # #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
@@ -66,4 +66,4 @@ print api.serialise(language="blueprint", format="n3")
 # import json
 #
 # with open('api-demo.json', 'w') as f:
-#   json.dump(api.serialise(language="hydra",format="json-ld"), f, sort_keys = True, indent = 4, ensure_ascii=False)
+# json.dump(api.serialise(language="hydra",format="json-ld"), f, sort_keys = True, indent = 4, ensure_ascii=False)

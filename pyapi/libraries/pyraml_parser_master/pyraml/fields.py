@@ -467,7 +467,7 @@ class Reference(BaseField):
             value = self.ref_class()
         # elif isinstance(value, list):
         # # Value maybe is list of `ref_class`
-        #    value = []
+        # value = []
         else:
             raise ValueError("{!r} expected to be dict".format(value))
         self.validate(value)

@@ -194,7 +194,7 @@ class Hypermedia:
 # links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/contexts/EntryPoint.jsonld', 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
 # links = [ 'http://www.markus-lanthaler.com/hydra/api-demo/vocab#']
 #
-#     for link in links:
+# for link in links:
 #         print "I will now check the : ",link
 #         hm = Hypermedia()
 #         if hm.open(link):

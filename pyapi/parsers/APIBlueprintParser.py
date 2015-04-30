@@ -1,16 +1,14 @@
 __author__ = 'mpetyx'
 
 from collections import OrderedDict
+from HTMLParser import HTMLParser
+from htmlentitydefs import name2codepoint
+
+import markdown
 
 from Parser import Parser
 from pyapi.entities import APIRoot, APIResource, APIMethod
 from pyapi.libraries.pyhydra import Hypermedia
-
-import markdown
-from HTMLParser import HTMLParser
-from htmlentitydefs import name2codepoint
-
-
 
 
 class APIblueprintParser(Parser):
@@ -22,7 +20,7 @@ class APIblueprintParser(Parser):
         # if hm.open(location):
         # print hm.doc.apidoc
         # for klassi in hm.doc.classes:
-        #         print "######################"
+        # print "######################"
         #         print hm.doc.classes[klassi].dump()
         # for operation in  hm.doc.classes[klassi].operations:
         #     print
@@ -71,38 +69,46 @@ class APIblueprintParser(Parser):
 
         return root
 
+
 class MyHTMLParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         print "Start tag:", tag
         for attr in attrs:
             print "     attr:", attr
+
     def handle_endtag(self, tag):
         print "End tag  :", tag
+
     def handle_data(self, data):
         if "Response" in data:
-            print "Response     :",data
+            print "Response     :", data
             return 1
         if "/" in data:
-            print "Path     :",data
+            print "Path     :", data
             return 1
-        for method in ['POST','GET','DELETE','PUT']:
+        for method in ['POST', 'GET', 'DELETE', 'PUT']:
             if method in data:
                 print "Resource     :", data
                 return 1
         print "Data     :", data
+
     def handle_comment(self, data):
         print "Comment  :", data
+
     def handle_entityref(self, name):
         c = unichr(name2codepoint[name])
         print "Named ent:", c
+
     def handle_charref(self, name):
         if name.startswith('x'):
             c = unichr(int(name[1:], 16))
         else:
             c = unichr(int(name))
         print "Num ent  :", c
+
     def handle_decl(self, data):
         print "Decl     :", data
+
 
 parser = MyHTMLParser()
 example = """
