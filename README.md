@@ -1,4 +1,5 @@
-# pyapi
+# pyapi 
+[![Build Status](https://travis-ci.org/mpetyx/pyapi.svg?branch=master)](https://travis-ci.org/mpetyx/pyapi)
 
 ***
 
