@@ -10,7 +10,7 @@ from pyapi import API
 
 class TestpyAPI(TestCase):
     def setUp(self):
-        print "Setting up the coverage unit test for pyapi"
+        # print "Setting up the coverage unit test for pyapi"
         self.document = API()
         self.api = API().parse(location="url", language="raml")
 
@@ -28,7 +28,7 @@ class TestpyAPI(TestCase):
                          "API blueprint could not be serialised properly")
 
     def test_query(self):
-        print "sample"
+        # print "sample"
         self.assertEqual(1, 2, "There are not equal at all!")
 
     # ending the test
