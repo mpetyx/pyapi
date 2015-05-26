@@ -55,11 +55,11 @@ class API():
             return "Not supported language yet."
 
 
-api = API()
+# api = API()
 # # RAML TEST
 # api.parse("http://imagine.epu.ntua.gr:1988/api/doc/schema/Account/?api_key=special-key", language='swagger')
-api.parse("coffeemachine.raml", "raml")
-print api.serialise(language="blueprint", format="n3")
+# api.parse("coffeemachine.raml", "raml")
+# print api.serialise(language="blueprint", format="n3")
 # #
 # api.parse('http://www.markus-lanthaler.com/hydra/api-demo/vocab#', language="hydra")
 # # print api.serialise(language="hydra",format="json-ld")
